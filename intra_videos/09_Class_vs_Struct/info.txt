@@ -1,0 +1,3 @@
+Struct by default is public
+
+Class by default is private
