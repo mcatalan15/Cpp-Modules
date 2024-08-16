@@ -1,0 +1,3 @@
+if at some point it SHOULDN'T EXIST or if it SHOULD CHANGE we use a POINTER.
+
+If it shuld ALWAYS EXIST an NEVER CHANGE we use a REFERENCE
