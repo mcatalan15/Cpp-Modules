@@ -10,3 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#ifndef WEAPON_H_
+# define WEAPON_H_
+# include <iostream>
+# include <cstring>
+# include <iomanip>
+
+class	Weapon	{
+
+	public:
+		Weapon(std::string type);
+		//Weapon();
+		~Weapon();
+
+	//	Weapon(std::string type);
+		std::string const getType();
+		void	setType(std::string type);
+
+	private:
+		std::string _type;
+};
+
+#endif

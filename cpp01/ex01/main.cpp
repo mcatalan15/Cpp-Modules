@@ -10,3 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+int main() {
+    Zombie *zombiePtr;
+    
+    int N = 15;
+    zombiePtr = zombieHorde(N, "Roberto");
+    for (int i = 0; i < N; i++) {
+        std::cout << "Zombie num " << i+1 << " announcement:" << std::endl;
+        zombiePtr[i].announce();
+    }
+    
+    delete[] zombiePtr;
+    
+    return 0;
+}

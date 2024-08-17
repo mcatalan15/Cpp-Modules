@@ -10,3 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "Zombie.hpp"
+
+int main()
+{
+   Zombie *zom;
+
+   Zombie zombie_clas = Zombie("Zombie");
+   zombie_clas.announce();
+
+   zom = newZombie("Heap");
+
+   randomChump("Stack:");
+
+   zom->announce();
+
+   delete zom;
+   return 0;
+}
