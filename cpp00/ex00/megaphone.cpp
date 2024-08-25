@@ -13,6 +13,16 @@
 #include <iostream>
 #include <cstring>
 
+/*
+    iostream used to print (cout)
+    cstring used for str managmenet (toupper)
+*/
+
+/*
+    This function takes all the arguments and convert them to upperkeys
+    In case 1 argument default message.
+*/
+
 int	main(int argc, char **argv)
 {
 	if (argc > 1)

@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:28 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 07:50:29 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/08/21 12:53:15 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,20 @@
 # include <cstring>
 # include <iomanip>
 
+/*
+    Iosmanip for the manipulation of the input/output. Useful for the SEARCH option.
+    
+    This Class declaration has public (accessible from anywhere) and private
+    (Accessible only with in the class).
+    -Public:
+        * Constructor and deconstructor.
+        * Functions that get private variables values anywhere (where the variables
+            are not accessible).
+    -Private:
+        * All the variables.
+        * Static numContact to ensure there's only one copy of this value.
+*/
+
 class	Contact	{
 
 	public:
@@ -26,12 +40,11 @@ class	Contact	{
 		void	setFirstName(std::string str);
 		void	setLastName(std::string str);
 		void	setNickName(std::string str);
-		void	setPhoneNumber(std::string str);
+		bool	setPhoneNumber(std::string str);
 		void	setDarkestSecret(std::string str);
-		
 		static	void	setNb(int n);
+		
 		static	int	    getNb();
-
 		std::string	getFirstName();
 		std::string	getLastName();
 		std::string	getNickName();
@@ -39,13 +52,12 @@ class	Contact	{
 		std::string	getDarkestSecret();
 
 	private:
-		std::string	_firstName;
-		std::string	_lastName;
-		std::string	_nickName;
-		std::string	_phoneNumber;
-		std::string	_darkestSecret;
-		static	int	_nContact;		
-
+		std::string	firstName;
+		std::string	lastName;
+		std::string	nickName;
+		std::string	phoneNum;
+		std::string	darkestSecret;
+		static	int	numContact;		
 };
 
 #endif

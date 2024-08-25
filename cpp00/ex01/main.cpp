@@ -6,17 +6,27 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:30 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 07:50:31 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/08/21 12:06:07 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+
+// void	print_options(void){
+
+// 	std::cout << "Enter one of these options:" << std::endl;
+// 	std::cout << "\tADD (save a new contact)" << std::endl;
+// 	std::cout << "\tSEARCH (display a specific contact)" << std::endl;
+// 	std::cout << "\tEXIT (the program quits and the contacts are lost forever!)" << std::endl;
+// 	return ;
+// }
 
 int	main(void){
 
 	std::string	input;
 	PhoneBook	obj;
 
+	// print_options();
 	std::cout << "Enter one of these options:" << std::endl;
 	std::cout << "\tADD (save a new contact)" << std::endl;
 	std::cout << "\tSEARCH (display a specific contact)" << std::endl;
@@ -40,4 +50,3 @@ int	main(void){
 	std::cout << "BYE" << std::endl;
 	return 0;
 }
-
