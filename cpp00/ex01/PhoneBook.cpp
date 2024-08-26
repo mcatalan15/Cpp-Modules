@@ -67,16 +67,15 @@ int	PhoneBook::saveContact(int num)	{
 }
 
 void	PhoneBook::addContact()	{
-	this->lastIndex = (this->lastIndex == 7) ? 0 : this->lastIndex + 1; //if lastIndex is 7 equal to 0 if not increment 1
+    int tempIndex = (this->lastIndex == 7) ? 0 : this->lastIndex + 1; //if lastIndex is 7 equal to 0 if not increment 1
 
-	std::cout << "nNOT Changed" << this->lastIndex << std::endl;
-	Contact::setNb(this->lastIndex); //called Contact.cpp
-	if (this->saveContact(this->lastIndex))	{ //saving the contact if error output + no increment index
-		Contact::setNb(this->lastIndex - 1); // NO ES AQUI
-		std::cout << "Changed" << this->lastIndex << std::endl;
+	std::cout << "nNOT Changed" << tempIndex << std::endl;
+	Contact::setNb(tempIndex); //called Contact.cpp
+	if (this->saveContact(tempIndex))	{ //saving the contact if error output + no increment index
 		std::cout << "Contact not saved\n" << std::endl;
 		return ;
 	}
+	this->lastIndex = tempIndex;
 	std::cout << "New contact saved!\n" << std::endl;
 	if (this->size < 8)
 		this->size += 1;
