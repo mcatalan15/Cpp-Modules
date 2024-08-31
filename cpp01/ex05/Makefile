@@ -16,12 +16,10 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    := BraiiiiiiinnnzzzZ
+NAME    := Harl
 
 SRC     :=  main.cpp		\
-            newZombie.cpp   \
-            randomChum.cpp  \
-            Zombie.cpp      \
+            Harl.cpp   \
 
 OBJ_DIR := obj
 
