@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:02:48 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/08/17 15:06:29 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/09/02 09:55:25 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(RED)Violence removed$(RST)"
+	@echo "$(RED)$(NAME) removed$(RST)"
 
 re: fclean all
 

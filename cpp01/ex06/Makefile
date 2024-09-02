@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/16 08:03:41 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/08/16 08:03:42 by mcatalan@st      ###   ########.fr        #
+#    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
+#    Updated: 2024/08/16 08:03:30 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,10 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    := BraiiiiiiinnnzzzZ
+NAME    := Harlfilter
 
 SRC     :=  main.cpp		\
-            newZombie.cpp   \
-            randomChum.cpp  \
-            Zombie.cpp      \
+            Harl.cpp   \
 
 OBJ_DIR := obj
 
@@ -41,7 +39,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null
-	@echo "$(RED)Megaphone removed$(RST)"
+	@echo "$(RED)$(NAME) removed$(RST)"
 
 re: fclean all
 

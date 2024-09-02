@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:12 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 07:50:13 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/02 05:53:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int	main(int argc, char **argv)
 		std::cout << std::endl;
 	}
 	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << "* LOUD AND UNumContactEARABLE FEEDBACK NOISE *" << std::endl;
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/21 12:57:08 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/02 05:53:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Contact::Contact()	{}
 Contact::~Contact()	{}
 
 //Get functions to return all the variables values on the Contact class
-int	Contact::getNb() { return (Contact::numContact);}
+int	Contact::getNumContact() { return (Contact::numContact);}
 
 std::string Contact::getFirstName() { return (firstName);}
 
@@ -35,7 +35,7 @@ std::string Contact::getPhoneNumber(){return (phoneNum);}
 std::string Contact::getDarkestSecret(){return (darkestSecret);}
 
 //Set functions that with a given value sets the variable to that value
-void	Contact:: setNb(int i) { Contact::numContact = i;}
+void	Contact:: setNumContact(int i) { Contact::numContact = i;}
 
 void	Contact::setFirstName(std::string str) { this->firstName = str;}
 

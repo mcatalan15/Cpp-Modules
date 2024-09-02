@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/21 13:21:17 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/02 05:53:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	PhoneBook::addContact()	{
     int tempIndex = (this->lastIndex == 7) ? 0 : this->lastIndex + 1; //if lastIndex is 7 equal to 0 if not increment 1
 
 	std::cout << "nNOT Changed" << tempIndex << std::endl;
-	Contact::setNb(tempIndex); //called Contact.cpp
+	Contact::setNumContact(tempIndex); //called Contact.cpp
 	if (this->saveContact(tempIndex))	{ //saving the contact if error output + no increment index
 		std::cout << "Contact not saved\n" << std::endl;
 		return ;
@@ -114,7 +114,7 @@ void	PhoneBook::searchContact()	{
 	if(!std::getline(std::cin, input))
 		return ;
 	else if (input.length() != 1 || (input[0] - 49) < 0 || (input[0] - 48) > this->size)
-		return std::cout << "Invalid index\n" <<std::endl, void(); //se puede hacer?
+		return std::cout << "Invalid index\n" <<std::endl, void();
 	index = input[0] - '0' - 1;
 
 	std::cout << "Index: " << index + 1 << std::endl;
