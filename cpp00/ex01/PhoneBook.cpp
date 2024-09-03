@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 18:34:21 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 19:18:48 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,9 @@ void	PhoneBook::addContact()	{
 	It will ask for the index of the contact to display.
 	If the index is invalid, it will return.
 	It will display the contact information.
+	
+	setw() is used to set the width of the output.
+	substr() is used to get a substring of the string in this case from position 0 to 9 of the str.
 */
 
 void	PhoneBook::searchContact()	{

@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:21 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 08:03:22 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 19:35:42 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 #include <iostream>
 #include <ostream>
 
+// Constructor and destructor
 Harl::Harl(){}
 
 Harl::~Harl(){}
 
+/*
+	This function will call the correct function depending on the level using a
+	switch case. If the level is not correct, it will print an error message.
+	
+	The for loop will iterate through the array of function pointers and call
+	the correct function.
+*/
 void    Harl::complain(std::string level) {
     
 	std::string levels[4] = {"DEBUG", "INFO" "WARNING", "EXTRA"};
@@ -41,6 +49,9 @@ void    Harl::complain(std::string level) {
 	}
 }
 
+/*
+	The functions debug, info, warning and error will print the corresponding message.
+*/
 void    Harl::debug() {
 	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle";

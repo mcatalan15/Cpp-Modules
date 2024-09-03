@@ -6,11 +6,25 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:02:46 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/02 18:05:10 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 19:04:52 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+/*
+	*What is a pointer to a str?
+	-stringPTR: Pointer to a string
+	It is a variable that holds the memory address of a string variable.
+	
+	*What is a reference to a str?
+	-stringREF: Reference to a string
+	
+	Both are pointing to the same string variable.
+	They are different ways to access the same variable.
+	The main diference is that a reference is an alias to the variable and a
+	pointer is a variable that holds the memory address of the variable.
+*/
 
 int	main()	{
 
