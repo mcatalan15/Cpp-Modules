@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/02 17:40:27 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 16:57:29 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,36 @@ int	PhoneBook::saveContact(int num)	{
 
 	Contact	*p;
 	std::string	input;
+	std::string	firstName;
+	std::string	lastName;
+	std::string	nickName;
+	std::string	phoneNumber;
+	std::string	darkestSecret;
 	p = &this->contact[num];
 
 	input = inputOption("First Name");
 	if (input == "")
 		return 1;
-	p->setFirstName(input);
+	firstName = input;
 	input = inputOption("Last Name");
 	if (input == "")
 		return 1;
-	p->setLastName(input);
+	lastName = input;
 	input = inputOption("Nickname");
 	if (input == "")
 		return 1;
-	p->setNickName(input);
+	nickName = input;
 	input = inputOption("Phone Number");
 	if (input == "" || !p->setPhoneNumber(input))
 		return 1;
-	p->setPhoneNumber(input);
+	phoneNumber = input;
 	input = inputOption("Darkest Secret");
 	if (input == "")
 		return 1;
+	p->setFirstName(input);
+	p->setLastName(input);
+	p->setNickName(input);
+	p->setPhoneNumber(input);
 	p->setDarkestSecret(input);
 	return 0;
 }
