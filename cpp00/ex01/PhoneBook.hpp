@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:36 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/02 05:54:41 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 18:35:54 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,17 @@
 # include "Contact.hpp"
 
 /*
-    Contact.hpp to have the includes.
+	This class declaration has public (accessible from anywhere) and private
+	(Accessible only with in the class).
+	*Public:
+		- Constructor and deconstructor.
+		- Functions that add a contact to the phonebook.
+		- Functions that search a contact in the phonebook.
+		- Function that saves a contact in the phonebook.
+	*Private:
+		- An array of contacts.
+		- The last index of the phonebook.
+		- The size of the phonebook.
 */
 
 class	PhoneBook{

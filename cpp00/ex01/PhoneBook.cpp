@@ -6,20 +6,35 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 18:16:33 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/03 18:34:21 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iostream>
 
+/*
+	Constructor of the PhoneBook class.
+	It will initialize the lastIndex to -1 and the size to 0.
+*/
+
 PhoneBook::PhoneBook()	{
 	this->lastIndex = -1;
 	this->size = 0;
 }
 
+/*
+	Destructor of the PhoneBook class.
+*/
+
 PhoneBook::~PhoneBook()	{
 }
+
+/*
+	This function will ask for an input and return it.
+	If the input is empty or the first character is a space,
+	it will ask for the input again.
+*/
 
 std::string	inputOption(std::string option)	{
 
@@ -36,6 +51,13 @@ std::string	inputOption(std::string option)	{
 	}
 	return input;
 }
+
+/*
+	This function will save the contact in the phonebook.
+	It will ask for the first name, last name, nickname, phone number and darkest secret.
+	If the input is empty, it will return 1.
+	If the phone number is not valid, it will return 1.
+*/
 
 int	PhoneBook::saveContact(int num)	{
 
@@ -75,10 +97,18 @@ int	PhoneBook::saveContact(int num)	{
 	return 0;
 }
 
+/*
+	This function will add a new contact to the phonebook.
+	It will call the saveContact function to save the contact.
+	If the contact is saved, it will increment the index.
+	If the index is 7, it will reset to 0.
+	If the size is less than 8, it will increment the size.
+*/
+
 void	PhoneBook::addContact()	{
     int tempIndex = (this->lastIndex == 7) ? 0 : this->lastIndex + 1; //if lastIndex is 7 equal to 0 if not increment 1
 
-	Contact::setNumContact(tempIndex); //called Contact.cpp
+	Contact::setNumContact(tempIndex); //called function to set the number of contact (Contact class)
 	if (this->saveContact(tempIndex))	{ //saving the contact if error output + no increment index
 		std::cout << "Contact not saved\n" << std::endl;
 		return ;
@@ -89,6 +119,15 @@ void	PhoneBook::addContact()	{
 		this->size += 1;
 	return ;
 }
+
+/*
+	This function will search for a contact in the phonebook.
+	If the phonebook is empty, it will return.
+	It will display the contacts in the phonebook.
+	It will ask for the index of the contact to display.
+	If the index is invalid, it will return.
+	It will display the contact information.
+*/
 
 void	PhoneBook::searchContact()	{
 
