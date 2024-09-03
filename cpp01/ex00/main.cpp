@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:49:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 07:49:26 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/02 18:00:20 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int main()
    Zombie zombie_clas = Zombie("Zombie");
    zombie_clas.announce();
 
+   std::cout <<"Zombie allocated on the heap " << std::endl;
    zom = newZombie("Heap");
 
+   std::cout << "Zombie allocated on the stack " << std::endl;
    randomChump("Stack:");
 
    zom->announce();

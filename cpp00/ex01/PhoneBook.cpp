@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/02 05:53:03 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/02 17:40:27 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	PhoneBook::saveContact(int num)	{
 void	PhoneBook::addContact()	{
     int tempIndex = (this->lastIndex == 7) ? 0 : this->lastIndex + 1; //if lastIndex is 7 equal to 0 if not increment 1
 
-	std::cout << "nNOT Changed" << tempIndex << std::endl;
 	Contact::setNumContact(tempIndex); //called Contact.cpp
 	if (this->saveContact(tempIndex))	{ //saving the contact if error output + no increment index
 		std::cout << "Contact not saved\n" << std::endl;
