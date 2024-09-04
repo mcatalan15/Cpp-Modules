@@ -16,7 +16,7 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    := BraiiiiiiinnnzzzZ
+NAME    := Sed
 
 SRC     :=  main.cpp		\
 

@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:57 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/04 12:42:33 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/04 19:59:41 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,43 @@
 #include <string>
 #include <iomanip>
 
-std::string newStr(std::string line, char *argv2, char *argv3) {}
+/*
+	This function will replace the string str2 with str3
+	
+	Given a string str, it will look for the string str2
+	When it finds it, it will replace it with str3
+	Then it will return the new string
+*/
+
+std::string newStr(std::string str, char *argv2, char *argv3) {
+
+	int	pos = 0;
+	std::string	newStr;
+	std::string	original;
+	std::string	str2 = argv2;
+	std::string	str3 = argv3;
+
+	pos = (str.find(str2));
+	if (pos >= 0) {
+		while (pos >= 0) {
+			std::string original = str.substr(0, pos);
+			newStr += original + str3;
+			str = str.substr(pos + str2.length());
+			pos = str.find(str2);
+		}
+	}
+	newStr = newStr + str;
+	return (newStr);
+}
+
+/*
+	Main function
+		- Check if the number of arguments is correct
+		- Check if the file given is valid with ifstream (infile.is_open())
+		- Create the new file with ofstream (newFile.is_open())
+		- Replace the string with the newStr function
+		- Write the new string to the new file
+*/
 
 int	main(int argc, char **argv)	{
 

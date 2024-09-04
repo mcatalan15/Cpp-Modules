@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:09 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/08/16 08:03:10 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/04 20:41:05 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ std::string Weapon::getType() {
 	return (_type);
 }
 
-std::string Weapon::setType(std::string type) {
+/*
+	Set the type of the weapon with the given value.
+*/
+
+void	Weapon::setType(std::string type) {
 	this->_type = type;
 	return ;
 }
