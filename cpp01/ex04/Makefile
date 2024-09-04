@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:51 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/09/02 09:55:35 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/09/04 10:46:45 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,6 @@ RST = \033[0m
 NAME    := BraiiiiiiinnnzzzZ
 
 SRC     :=  main.cpp		\
-            newZombie.cpp   \
-            randomChum.cpp  \
-            Zombie.cpp      \
 
 OBJ_DIR := obj
 
