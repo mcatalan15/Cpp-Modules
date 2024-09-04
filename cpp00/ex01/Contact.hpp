@@ -40,7 +40,7 @@ class	Contact	{
 		void	setFirstName(std::string str);
 		void	setLastName(std::string str);
 		void	setNickName(std::string str);
-		bool	setPhoneNumber(std::string str);
+		void	setPhoneNumber(std::string str);
 		void	setDarkestSecret(std::string str);
 		static	void	setNumContact(int n);
 		

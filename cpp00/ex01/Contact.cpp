@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/02 05:53:03 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/04 17:51:46 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,6 @@ void	Contact::setLastName(std::string str) { this->lastName = str;}
 
 void	Contact::setNickName(std::string str) { this->nickName = str;}
 
-bool	Contact::setPhoneNumber(std::string str) {
-	int len = str.length();
-	if (len > 9)
-		return std::cout << "Phone number too long" << std::endl, false;
-	else {
-		for (int i = 0; i < len; i++) {
-			if (!std::isdigit(str[i]))
-				return std::cout << "Phone number must be a number" << std::endl, false;
-		}
-	}
-	this->phoneNum = str;
-	return true;
-}
+void	Contact::setPhoneNumber(std::string str) {this->phoneNum = str;}
 
 void	Contact::setDarkestSecret(std::string str) { this->darkestSecret = str;}

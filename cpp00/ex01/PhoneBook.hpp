@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:36 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 18:35:54 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/04 18:00:22 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class	PhoneBook{
 		void	addContact();
 		void	searchContact();
 		int	saveContact(int	NumContact);
+		bool	phoneNumberFilter(std::string str);
 	
 	private:
 		Contact contact[8];

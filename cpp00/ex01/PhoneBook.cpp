@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 07:50:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/04 12:33:42 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/04 18:01:01 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,21 @@ std::string	inputOption(std::string option)	{
 	If the phone number is not valid, it will return 1.
 */
 
+bool	PhoneBook::phoneNumberFilter(std::string str)	{
+	int len = str.length();
+	if (len > 9)
+		return std::cout << "Phone number too long" << std::endl, false;
+	else
+	{
+		for (int i = 0; i < len; i++)
+		{
+			if (!std::isdigit(str[i]))
+				return std::cout << "Phone number must be a number" << std::endl, false;
+		}
+	}
+	return true;
+}
+
 int	PhoneBook::saveContact(int num)	{
 
 	Contact	*p;
@@ -82,7 +97,7 @@ int	PhoneBook::saveContact(int num)	{
 		return 1;
 	nickName = input;
 	input = inputOption("Phone Number");
-	if (input == "" || !p->setPhoneNumber(input))
+	if (input == "" || !phoneNumberFilter(input))
 		return 1;
 	phoneNumber = input;
 	input = inputOption("Darkest Secret");
