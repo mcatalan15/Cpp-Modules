@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:57 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/04 19:59:41 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 10:49:08 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,25 @@
 	Then it will return the new string
 */
 
-std::string newStr(std::string str, char *argv2, char *argv3) {
+std::string finalStr(std::string str, char *argv2, char *argv3) {
 
 	int	pos = 0;
-	std::string	newStr;
-	std::string	original;
+	std::string	finalStr;
+	std::string partialStr;
 	std::string	str2 = argv2;
 	std::string	str3 = argv3;
 
 	pos = (str.find(str2));
 	if (pos >= 0) {
 		while (pos >= 0) {
-			std::string original = str.substr(0, pos);
-			newStr += original + str3;
+			std::string partialStr = str.substr(0, pos);
+			finalStr += partialStr + str3;
 			str = str.substr(pos + str2.length());
 			pos = str.find(str2);
 		}
 	}
-	newStr = newStr + str;
-	return (newStr);
+	finalStr = finalStr + str;
+	return (finalStr);
 }
 
 /*
@@ -49,7 +49,7 @@ std::string newStr(std::string str, char *argv2, char *argv3) {
 		- Check if the number of arguments is correct
 		- Check if the file given is valid with ifstream (infile.is_open())
 		- Create the new file with ofstream (newFile.is_open())
-		- Replace the string with the newStr function
+		- Replace the string with the finalStr function
 		- Write the new string to the new file
 */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)	{
 		//add to replacemente the replacement str
 		std::string str;
 		while (std::getline(infile, str))	{
-			std::string pStr = newStr(str, argv[2], argv[3]);
+			std::string pStr = finalStr(str, argv[2], argv[3]);
 			newFile << pStr << std::endl;
 		}
 	}
