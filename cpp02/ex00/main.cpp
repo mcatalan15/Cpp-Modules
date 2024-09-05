@@ -6,11 +6,26 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 20:53:03 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/04 20:54:16 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 19:20:43 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/*
+	- Create three Fixed objects.
+	- Create a Fixed object a.
+	- Create a Fixed object b and initialize it with a.
+	- Create a Fixed object c and assign b to it.
+	- Print the raw value of a, b and c.
+
+	Expected output:
+	1.Fixed a: "Default constructor called" + num of a is initialized to 0.
+	2.Fixed b(a): "Copy constructor called" + num of b will have the num member as a.num(0).
+	3.Fixed c: "Default constructor called" + num of c is initialized to 0.
+	4.c = b: "Copy assignment operator called" + c.num is assigned the value of b.num(0).
+	5.std getRawBits(): "getRawBits member function called" + prints the raw value of a, b and c.
+*/
 
 int	main()	{
 
@@ -19,6 +34,10 @@ int	main()	{
 	Fixed c;
 	c = b;
 
-	std::cout << a.get:w
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return 0;
 }
 
