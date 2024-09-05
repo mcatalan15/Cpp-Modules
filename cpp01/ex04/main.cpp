@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:57 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/05 10:49:08 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 11:00:23 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 	Given a string str, it will look for the string str2
 	When it finds it, it will replace it with str3
 	Then it will return the new string
+
+	Technical details:
+	- .find() will return the position of the first occurrence of str2
+	- Then with .substr() we will get the substring from 0 to the position of str2 (partialStr).
+	- Add to finalStr the partialStr and str3
+	- Then we will get the .substr() from the position of str2 to the end of the string
+	- We will repeat the process until we don't find any more str2
+	- Finally, we will add the last part of the string to the finalStr
 */
 
 std::string finalStr(std::string str, char *argv2, char *argv3) {
@@ -51,6 +59,13 @@ std::string finalStr(std::string str, char *argv2, char *argv3) {
 		- Create the new file with ofstream (newFile.is_open())
 		- Replace the string with the finalStr function
 		- Write the new string to the new file
+	
+	Technical details:
+	- infile: file to be replaced
+	- .is_open(): check if the file is valid
+	- std::ofstream newFile: new file to be created with (newFileName.c_str()).
+	- c_str() is used to convert the string to a char array
+	- newFile.is_open(): check if the new file is valid
 */
 
 int	main(int argc, char **argv)	{

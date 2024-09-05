@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:02:29 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 18:56:24 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 11:02:47 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@
 	We will use the pointer to access the elements of the array.
 	We will use the new keyword to create the array of Zombies on the heap.
 	We will use the delete[] keyword to delete the array of Zombies from the heap.
+
+	delete[]: 
+		- Deletes an array of objects from the heap
+		- Calls the destructor of each object
+		- Deallocates the memory
 */
 
 int main() {

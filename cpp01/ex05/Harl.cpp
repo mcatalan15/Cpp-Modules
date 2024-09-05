@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:21 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 19:23:13 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 11:12:15 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,14 @@ Harl::~Harl(){}
 	This function will call the correct function depending on the level.
 	If the level is not correct, it will print an error message.
 	
-	size() returns the number of characters in the string (format size_t) in this case 1.
+	.size() returns the number of characters in the string (format size_t) in this case 1.
 	
 	The for loop will iterate through the array of function pointers and call the correct function.
+	
+	&Harl::debug is the address of the function debug. Same for the other cases.
+	We whant the addres of the function because we are going to store it in a pointer.
+
+	this->*f[i] is the syntax to call a function pointer declared in the array f and depending on the value of i.
 */
 
 void    Harl::complain(std::string level) {

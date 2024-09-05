@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 08:03:21 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/03 19:35:42 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/05 11:11:20 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@ Harl::~Harl(){}
 /*
 	This function will call the correct function depending on the level using a
 	switch case. If the level is not correct, it will print an error message.
-	
+
+	this->Harl::debug is the syntax to call the function debug.
+
 	The for loop will iterate through the array of function pointers and call
 	the correct function.
 */
-void    Harl::complain(std::string level) {
-    
+void	Harl::complain(std::string level) {
+
 	std::string levels[4] = {"DEBUG", "INFO" "WARNING", "EXTRA"};
 	int	i;
 	for (i = 0; i < 4; i++)	{
@@ -52,13 +54,13 @@ void    Harl::complain(std::string level) {
 /*
 	The functions debug, info, warning and error will print the corresponding message.
 */
-void    Harl::debug() {
+void	Harl::debug() {
 	std::cout << "[ DEBUG ]" << std::endl;
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle";
 	std::cout << "-special-ketchup burger. I really do!" << std::endl;
 }
 
-void    Harl::info() {
+void	Harl::info() {
  	std::cout << "[ INFO ]" << std::endl;
 	std::cout << "I cannot believe adding extra bacon costs more money. ";
 	std::cout << "You didn’t put enough bacon in my burger! ";
