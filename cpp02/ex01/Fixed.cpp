@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/05 21:54:26 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/06 11:15:05 by mcatalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,6 @@ int	Fixed::getRawBits(void) const {
 */
 
 void	Fixed::setRawBits(int const raw) { this->fPointValue = raw; }
-
-//Declarar como friend en struc Fixed arreglaria estos pasos.
 
 // operador "<<" (const)
 std::ostream &operator<<(std::ostream &out, Fixed const &rhs)
