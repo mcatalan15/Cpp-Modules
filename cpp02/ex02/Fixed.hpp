@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/06 16:49:53 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/07 12:54:28 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@
 	*public:
 		- getRawBits(void) const; //Returns the raw value of the fixed point value.
 		- setRawBits(int const raw); //Sets the raw value of the fixed point value.
+		- int toInt() + float toFloat(); //Converts the fixed point value to an integer or float.
+		- Comparison operators: >, <, >=, <=, ==, !=.
+		- Arithmetic operators: +, -, *, /.
+		- Increment & decrement operators and postoperators: ++, --.
+		- MAX & MIN operators: min, max.
+		
 	*private:
 		- int num; //The fixed point value.
 		- static int const bits = 8; //The number of fractional bits.

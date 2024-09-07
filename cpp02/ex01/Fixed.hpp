@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:33 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/05 21:47:18 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/07 12:31:07 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@
 	*private:
 		- int num; //The fixed point value.
 		- static int const bits = 8; //The number of fractional bits.
+*/
+
+/*
+	Same as exercise 00 but with the addition of the toInt() and toFloat() converters.
 */
 
 class	Fixed	{

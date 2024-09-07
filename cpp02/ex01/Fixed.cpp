@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/06 11:15:05 by mcatalan         ###   ########.fr       */
+/*   Updated: 2024/09/07 12:35:26 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed()	{
 }
 
 /*
-	Copy constructor with output and initialize the object using another object.
+	Copy constructor with output and initialize the object using an existing object.
 */
 
 Fixed::Fixed(Fixed const &src)	{
@@ -29,7 +29,7 @@ Fixed::Fixed(Fixed const &src)	{
 }
 
 /*
-	
+	Int constructor. Init fPointValue with the value of numI shifted left by fBits.
 */
 Fixed::Fixed(int const numI) {
 	std::cout << "Integer constructor called" << std::endl;
@@ -37,7 +37,9 @@ Fixed::Fixed(int const numI) {
 }
 
 /*
-
+	Float constructor. Init fPointValue with the value of numF multiplied by 2 raised to the power of fBits.
+	- roundf() rounds the float to the nearest integer value.
+	- (1 << this->fBits) is equivalent to 2 raised to the power of fBits.
 */
 Fixed::Fixed(float const numF) {
 	std::cout << "Integer constructor called" << std::endl;
@@ -51,20 +53,10 @@ Fixed::~Fixed()	{
 }
 
 /*
-	Why a copy assignment operator?
-	In C++, the copy assignment operator is used to copy the data from one object to another.
-	When we assign one object to another, the copy assignment operator is called.
-
-	To allow the copy assignment operator to work, we need to overload the assignment operator.
-	We can do this by defining a member function with the name operator= and the following syntax:
-	- ReturnType operator=(const ClassName &rhs);
-
-	The copy assignment operator. Used when an object is assigned the value of
-	another object.
-	- Print a message.
-	- Check if the object is not the same as the one being assigned. (this != &raw)
-	- Sets the num member to the value of raw's (the object) num.
-	- Returns a reference to the object.
+	Copy assignment operator with output.
+	If the object is not the same as the one passed as an argument, the value of the private
+	member fPointValue is assigned the value of the object passed as an argument with getRawBits().
+	Returns a reference to the object
 */
 
 Fixed &Fixed::operator=(Fixed const &raw) {
@@ -75,7 +67,18 @@ Fixed &Fixed::operator=(Fixed const &raw) {
 	return (*this);
 }
 
+/*
+	Converting the fixed point value to an integer.
+	-Divide the value of fPointValue by 2 raised to the power of fBits.
+*/
+
 int	Fixed::toInt(void) const { return (this->fPointValue >> this->fBits);}
+
+/*
+	Converting the fixed point value to a float.
+	-Divide the value of fPointValue by 2 raised to the power of fBits.
+	same as toInt() but returns a float.
+*/
 
 float Fixed::toFloat(void) const { return ((float)this->fPointValue / (1 << this->fBits)); }
 
@@ -95,6 +98,10 @@ int	Fixed::getRawBits(void) const {
 void	Fixed::setRawBits(int const raw) { this->fPointValue = raw; }
 
 // operador "<<" (const)
+/*
+	Overload of the operator "<<" to output the value of the object as a float.
+	Const version to handle const and non const objects.
+*/
 std::ostream &operator<<(std::ostream &out, Fixed const &rhs)
 {
 	out << rhs.toFloat();
@@ -102,6 +109,10 @@ std::ostream &operator<<(std::ostream &out, Fixed const &rhs)
 }
 
 // operador "<<"
+/*
+	Overload of the operator "<<" to output the value of the object as a float.
+	Same as the const version but for non const objects.
+*/
 std::ostream &operator<<(std::ostream &out, Fixed &rhs)
 {
 	out << rhs.toFloat();
