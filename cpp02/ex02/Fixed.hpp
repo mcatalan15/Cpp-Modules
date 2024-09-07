@@ -60,10 +60,10 @@ class	Fixed	{
 
 		// Increment & decrement operators
 		// Preoperators
-		// Postoperators
 		Fixed operator++(void);
-		Fixed operator++(int);
 		Fixed operator--(void);
+		// Postoperators
+		Fixed operator++(int);
 		Fixed operator--(int);
 		
 

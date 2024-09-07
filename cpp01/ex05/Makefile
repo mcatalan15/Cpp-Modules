@@ -35,7 +35,7 @@ all:    $(NAME)
 
 clean:
 	$(RM) $(OBJ_DIR) $(DEP_DIR) > /dev/null
-	@echo "$(RED)Objects and dependencies removed$(RST)"
+	@echo "$(RED)Objects removed$(RST)"
 
 fclean: clean
 	$(RM) $(NAME) > /dev/null

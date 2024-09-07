@@ -55,9 +55,7 @@ Fixed::~Fixed()	{}
 
 //COMPARATORS OPERATORS
 // operator "="
-
 Fixed &Fixed::operator=(Fixed const &raw) {
-	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &raw) {
 		this->fPointValue = raw.getRawBits();
 	}
@@ -65,29 +63,89 @@ Fixed &Fixed::operator=(Fixed const &raw) {
 }
 
 // operator ">"
+bool	Fixed::operator>(Fixed const &raw) const {
+	return (this->fPointValue > raw.fPointValue ? true : false);
+}
 // operator "<"
+bool	Fixed::operator<(Fixed const &raw) const {
+	return (this->fPointValue < raw.fPointValue ? true : false);
+}
 // operator ">="
+bool	Fixed::operator>=(Fixed const &raw) const {
+	return (this->fPointValue >= raw.fPointValue ? true : false);
+}
 // operator "<="
+bool	Fixed::operator<=(Fixed const &raw) const {
+	return (this->fPointValue <= raw.fPointValue ? true : false);
+}
 // operator "=="
+bool	Fixed::operator==(Fixed const &raw) const {
+	return (this->fPointValue == raw.fPointValue ? true : false);
+}
 // operator "!="
+bool	Fixed::operator!=(Fixed const &raw) const {
+	return (this->fPointValue != raw.fPointValue ? true : false);
+}
+
 // operator "+"
+float	Fixed::operator+(Fixed const &raw) const {
+	return (this->toFloat() + raw.toFloat());
+}
 // operator "-"
+float	Fixed::operator-(Fixed const &raw) const {
+	return (this->toFloat() - raw.toFloat());
+}
 // operator "*"
+float	Fixed::operator*(Fixed const &raw) const {
+	return (this->toFloat() * raw.toFloat());
+}
 // operator "/"
+float	Fixed::operator/(Fixed const &raw) const {
+	return (this->toFloat() / raw.toFloat());
+}
 
 //INCREMENT AND DECREMENT OPERATORS
 //PREOPERATORS
 // operator "++"
+Fixed Fixed::operator++(void) {
+	this->fPointValue = this->fPointValue + 1;
+	return (*this);
+}
 // operator "--"
-
+Fixed Fixed::operator--(void) {
+	this->fPointValue = this->fPointValue - 1;
+	return (*this);
+}
 //POSTOPERATORS
 // operator "++"
+Fixed Fixed::operator++(int) {
+	Fixed init(*this);
+	this->fPointValue = this->fPointValue + 1;
+	return (init);
+}
 // operator "--"
-
+Fixed Fixed::operator--(int) {
+	Fixed init(*this);
+	this->fPointValue = this->fPointValue - 1;
+	return (init);
+}
 //MAX MIN OPERATORS
 // operator "min"
-// operator "max"
+const	Fixed &Fixed::min(Fixed const &first, Fixed const &second) {
+	return (first < second ? first : second);
+}
 
+Fixed &Fixed::min(Fixed &first, Fixed &second) {
+	return (first < second ? first : second);
+}
+// operator "max"
+const	Fixed &Fixed::max(Fixed const &first, Fixed const &second) {
+	return (first > second ? first : second);
+}
+
+Fixed &Fixed::max(Fixed &first, Fixed &second) {
+	return (first > second ? first : second);
+}
 
 int	Fixed::toInt(void) const { return (this->fPointValue >> this->fBits);}
 
@@ -98,7 +156,6 @@ float Fixed::toFloat(void) const { return ((float)this->fPointValue / (1 << this
 */
 
 int	Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (fPointValue);
 }
 
