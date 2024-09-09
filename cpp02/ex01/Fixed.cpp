@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 11:14:25 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/07 12:35:26 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/09 18:04:16 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Fixed::Fixed(int const numI) {
 	- (1 << this->fBits) is equivalent to 2 raised to the power of fBits.
 */
 Fixed::Fixed(float const numF) {
-	std::cout << "Integer constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
 	this->fPointValue = roundf(numF * (1 << this->fBits));
 }
 
