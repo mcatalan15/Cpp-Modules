@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/09/09 19:34:45 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/09/12 09:07:43 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	ClapTrap
+NAME    :=	FragTrap
 
 SRC     :=	main.cpp		\
-			ClapTrap.cpp   \
+			ClapTrap.cpp	\
+			ScavTrap.cpp	\
+			FragTrap.cpp	\
 
 OBJ_DIR := obj
 

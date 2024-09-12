@@ -6,12 +6,69 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 19:35:13 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/09 19:35:42 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/12 09:07:05 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
+int main()
+{
+
+	FragTrap Empty;
+	ClapTrap Julia("JuliaClap");
+	ScavTrap Pepe("PepeScav");
+	FragTrap Teo("TeoFrag");
+
+	Teo.attack("Miami");
+	Teo.takeDamage(50);
+	Teo.beRepaired(30);
+	Teo.highFivesGuys();
+
+	Pepe.guardGate();
+	Pepe.beRepaired(10);
+	Pepe.attack("Miami");
+
+	Teo.takeDamage(150);
+	Pepe.takeDamage(150);
+
+	Teo.takeDamage(150);
+
+	return (0);
+}
+
+// int main( ) {
+
+// 	ClapTrap Julia("Julia");
+// 	ScavTrap Pepe("Pepe");
+// 	ScavTrap Empty;
+
+// 	ScavTrap Teo("Teo");
+
+// 	Pepe.attack("Miami");
+// 	Teo.takeDamage(50);
+// 	Pepe.beRepaired(3);
+
+// 	Teo.guardGate();
+
+// 	Pepe.beRepaired(3);
+
+// 	Pepe.beRepaired(5);
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+
+// 	Teo.takeDamage(5);
+// 	Teo.takeDamage(10);
+// 	Teo.takeDamage(7);
+
+// 	return (0);
+// }
+
+/*
 int main(void) {
 	
 	ClapTrap Marc("Marc");
@@ -37,4 +94,4 @@ int main(void) {
 
 	return (0);
 }
-
+*/

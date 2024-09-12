@@ -16,10 +16,11 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	ClapTrap
+NAME    :=	ScavTrap
 
 SRC     :=	main.cpp		\
 			ClapTrap.cpp   \
+			ScavTrap.cpp
 
 OBJ_DIR := obj
 
