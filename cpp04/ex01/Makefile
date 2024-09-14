@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/09/12 09:43:40 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/09/13 18:27:08 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,13 +16,15 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	Diamond
+NAME    :=	Polymorphism
 
 SRC     :=	main.cpp		\
-			ClapTrap.cpp	\
-			ScavTrap.cpp	\
-			FragTrap.cpp	\
-			DiamondTrap.cpp	\
+			Animal.cpp		\
+			Cat.cpp			\
+			Dog.cpp			\
+			WrongAnimal.cpp	\
+			WrongCat.cpp	\
+			Brain.cpp		\
 
 OBJ_DIR := obj
 

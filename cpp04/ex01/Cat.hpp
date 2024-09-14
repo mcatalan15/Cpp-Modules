@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:53:24 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:53:25 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 17:42:37 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 18:33:22 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "ClapTrap.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-// FragTrap class declaration same way as ScavTrap
-
-class	FragTrap: public ClapTrap {
-
+class Cat: public Animal {
+	
+	private:
+		Brain *_brain;
 	public:
-		FragTrap();
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &src);
-		~FragTrap();
+		Cat();
+		Cat(const Cat &src);
+		~Cat();
 
-		FragTrap &operator=(const FragTrap &src);
+		Cat &operator=(const Cat &src);
 
-		void highFivesGuys(void);
+		Brain *getBrain() const;
+		void setBrain(Brain *brain);
+
+		void makeSound();
+		void makeSound() const;
 };
 
 #endif

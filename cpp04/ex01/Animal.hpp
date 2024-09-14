@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:53:24 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:53:25 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 17:36:28 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 18:28:07 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 #include <iostream>
 #include <cstring>
 #include <iomanip>
-#include "ClapTrap.hpp"
+#include "Brain.hpp"
 
-// FragTrap class declaration same way as ScavTrap
-
-class	FragTrap: public ClapTrap {
-
+class Animal {
+	
+	protected:
+		std::string _type;
+	
 	public:
-		FragTrap();
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &src);
-		~FragTrap();
-
-		FragTrap &operator=(const FragTrap &src);
-
-		void highFivesGuys(void);
+		Animal();
+		Animal(const std::string &type);
+		Animal(const Animal &src);
+		virtual ~Animal();
+	
+		Animal &operator=(const Animal &src);
+		
+		std::string getType() const;
+		void		setType(const std::string &type);
+		
+		virtual void makeSound();
+		virtual void makeSound() const;
 };
 
 #endif

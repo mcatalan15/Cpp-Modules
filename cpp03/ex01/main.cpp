@@ -6,44 +6,78 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 19:35:13 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/09 19:35:42 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/14 09:44:42 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "ClapTrap.hpp"
-# include "ScavTrap.hpp"
-
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp" 
+#include "ScavTrap.hpp"
 
-int main( ) {
+/*
+	main function:
+		- Create two instances of the ClapTrap class.
+		- Set the attack damage of the first instance to 2.
+		- Call the attack function of the first instance.
+		- Call the take damage function of the second instance.
+		- Call the attack function of the second instance.
+		- Call the take damage function of the first instance.
+		- Call the attack function of the first instance.
+		- Set the energy points of the second instance to 0.
+		- Call the attack function of the second instance.
+		- Call the guard gate function of the second instance.
+*/
 
-	ClapTrap Julia("Julia");
-	ScavTrap Pepe("Pepe");
-	ScavTrap Empty;
+int main()
+{
+	ClapTrap a("Fernando");
+	ScavTrap b("Alonso");
 
-	ScavTrap Teo("Teo");
+	std::cout << std::endl;
+	std::cout << "ScavTrap: att: " << b.getAttackDamage() << " hp: " << b.getHitPoints() << " energy: " << b.getEnergyPoints() << std::endl;
+	a.setAttackDamage(2);
+	std::cout << std::endl;
 
-	Pepe.attack("Miami");
-	Teo.takeDamage(5);
-	Pepe.beRepaired(3);
+	a.attack(b.getName());
+	b.takeDamage(a.getAttackDamage());
+	b.attack(a.getName());
+	a.takeDamage(b.getAttackDamage());
+	a.attack(b.getName());
+	b.setEnergyPoints(0);
+	b.attack(a.getName());
 
-	Teo.guardGate();
-
-	Pepe.beRepaired(3);
-
-	Pepe.beRepaired(5);
-	Pepe.attack("Miami");
-	Pepe.attack("Miami");
-	Pepe.attack("Miami");
-	Pepe.attack("Miami");
-
-	Teo.takeDamage(5);
-	Teo.takeDamage(10);
-	Teo.takeDamage(7);
-
-	return (0);
+	b.guardGate();
+	std::cout << std::endl;
+	return 0;
 }
+
+// int main( ) {
+
+// 	ClapTrap Julia("Julia");
+// 	ScavTrap Pepe("Pepe");
+// 	ScavTrap Empty;
+
+// 	ScavTrap Teo("Teo");
+
+// 	Pepe.attack("Miami");
+// 	Teo.takeDamage(5);
+// 	Pepe.beRepaired(3);
+
+// 	Teo.guardGate();
+
+// 	Pepe.beRepaired(3);
+
+// 	Pepe.beRepaired(5);
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+// 	Pepe.attack("Miami");
+
+// 	Teo.takeDamage(5);
+// 	Teo.takeDamage(10);
+// 	Teo.takeDamage(7);
+
+// 	return (0);
+// }
 
 /*
 int main(void) {

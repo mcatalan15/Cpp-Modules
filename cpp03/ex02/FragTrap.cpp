@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/14 09:53:27 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/14 09:53:28 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "FragTrap.hpp"
 
 // Default constructor
@@ -25,7 +37,7 @@ FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src) {
 // Destructor
 FragTrap::~FragTrap() { std::cout << "FragTrap Destructor called: " << this->_name << std::endl;}
 
-// Operator =
+// Copy assignment operator
 FragTrap &FragTrap::operator=(const FragTrap &src) {
 	std::cout << "FragTrap copy assigment operator: " << this->_name << std::endl;
 	if (this != &src) {
@@ -36,6 +48,11 @@ FragTrap &FragTrap::operator=(const FragTrap &src) {
 	}
 	return (*this);
 }
+
+/*
+	High Fives Guys member function:
+	Prints a message with the name of the ClapTrap and the target
+*/
 
 void FragTrap::highFivesGuys() {
 	std::cout << "FragTrap" << this->_name << " has High Fives US! 🖐️";

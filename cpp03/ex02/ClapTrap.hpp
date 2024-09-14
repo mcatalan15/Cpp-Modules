@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 19:35:10 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/09 19:35:48 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/14 09:49:47 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <iostream>
 # include <cstring>
 # include <iomanip>
+
+// Same as ex01
 
 class	ClapTrap {
 

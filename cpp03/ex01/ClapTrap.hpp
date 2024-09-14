@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 19:35:10 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/09 19:35:48 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/14 09:44:14 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 # include <iostream>
 # include <cstring>
 # include <iomanip>
+
+/*
+	ClapTrap class declaration
+
+	Why protected?
+	-Protected members are accessible in the class and in the derived class.
+	-Private members are only accessible in the class.
+	This means that the derived class can access the protected members of the base class.
+	
+	The rest of the class is the same as in ex00
+*/
 
 class	ClapTrap {
 

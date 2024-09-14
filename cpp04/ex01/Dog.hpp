@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 09:31:26 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/12 09:32:50 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 17:45:10 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 18:55:35 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_HPP
-#define DIAMONDTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class	DiamondTrap: public ScavTrap, public FragTrap {
+class Dog: public Animal {
 
-	public:
-		DiamondTrap();
-		DiamondTrap(const std::string &name);
-		DiamondTrap(const DiamondTrap &src);
-		~DiamondTrap();
-
-		DiamondTrap &operator=(const DiamondTrap &src);
-
-		std::string getName() const;
-
-		void whoAmI(void);
-	
 	private:
-		std::string _name;
+		Brain *_brain;
+	public:
+		Dog();
+		Dog(const Dog &src);
+		~Dog();
+
+		Dog &operator=(const Dog &src);
+
+		Brain	*getBrain() const;
+		void	setBrain(Brain *brain);
+
+		void makeSound();
+		void makeSound() const;
 };
 
 #endif

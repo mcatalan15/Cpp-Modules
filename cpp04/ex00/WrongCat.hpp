@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:53:24 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:53:25 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 17:50:46 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 17:52:50 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "ClapTrap.hpp"
+# include "WrongAnimal.hpp"
 
-// FragTrap class declaration same way as ScavTrap
-
-class	FragTrap: public ClapTrap {
+class WrongCat: public WrongAnimal {
 
 	public:
-		FragTrap();
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &src);
-		~FragTrap();
+		WrongCat();
+		WrongCat(const WrongCat &src);
+		~WrongCat();
 
-		FragTrap &operator=(const FragTrap &src);
+		WrongCat &operator=(const WrongCat &src);
 
-		void highFivesGuys(void);
+		void makeSound();
+		void makeSound() const;
 };
 
 #endif

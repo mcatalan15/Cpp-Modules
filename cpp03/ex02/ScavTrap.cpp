@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/14 09:53:14 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/14 09:53:15 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScavTrap.hpp"
 
 // Default constructor
@@ -25,7 +37,7 @@ ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
 // Destructor
 ScavTrap::~ScavTrap() { std::cout << "ScavTrap Destructor called: " << this->_name << std::endl;}
 
-// Operator =
+// Copy assignment operator
 ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
 	std::cout << "ScavTrap copy assigment operator: " << this->_name << std::endl;
 	if (this != &src) {
@@ -37,6 +49,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &src) {
 	return (*this);
 }
 
+/*
+	Guard Gate member function
+	Prints the name of the ScavTrap and the message "is in Gate keeper mode."
+*/
 void ScavTrap::guardGate() {
 	std::cout << "ScavTrap " << this->_name << " is in Gate keeper mode.";
 	std::cout << std::endl << std::endl;

@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:53:24 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:53:25 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 18:28:52 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 18:32:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "ClapTrap.hpp"
+# include <iostream>
 
-// FragTrap class declaration same way as ScavTrap
-
-class	FragTrap: public ClapTrap {
-
+class Brain {
+	
+	private:
+		std::string	_ideas[100];
+		int			_index;
+	
 	public:
-		FragTrap();
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &src);
-		~FragTrap();
+		Brain();
+		Brain(const Brain &src);
+		~Brain();
 
-		FragTrap &operator=(const FragTrap &src);
-
-		void highFivesGuys(void);
+		Brain &operator=(const Brain &src);
+		
+		std::string getIdea() const;
+		void		setIdea(const std::string &idea);
+		void		printIdeas();
 };
 
 #endif

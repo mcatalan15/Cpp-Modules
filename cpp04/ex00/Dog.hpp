@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/14 09:53:24 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:53:25 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/09/13 17:45:10 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/09/13 18:11:54 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
-#include <iostream>
-#include <cstring>
-#include <iomanip>
-#include "ClapTrap.hpp"
+# include "Animal.hpp"
 
-// FragTrap class declaration same way as ScavTrap
-
-class	FragTrap: public ClapTrap {
+class Dog: public Animal {
 
 	public:
-		FragTrap();
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &src);
-		~FragTrap();
+		Dog();
+		Dog(const Dog &src);
+		~Dog();
 
-		FragTrap &operator=(const FragTrap &src);
+		Dog &operator=(const Dog &src);
 
-		void highFivesGuys(void);
+		void makeSound();
+		void makeSound() const;
 };
 
 #endif
