@@ -21,9 +21,10 @@
 int main(void) {
 	
 	ClapTrap Marc("Marc");
-	ClapTrap Jon("Jon");
+	ClapTrap Jon("Jon"); 
 
 	Marc.attack("Bin Laden");
+<<<<<<< Updated upstream
 	Marc.beRepaired(3);
 	Marc.takeDamage(5);
 	Marc.attack("Stalin");
@@ -42,4 +43,7 @@ int main(void) {
 	Jon.beRepaired(15);
 
 	return (0);
+=======
+	Marc.beRepaired
+>>>>>>> Stashed changes
 }
