@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 19:35:13 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/14 09:52:23 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/20 16:43:35 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int main() {
 		Jon.takeDamage(150);
 
 		Marc.takeDamage(150);
-		std::cout << std::endl << std::endl << std::endl;
 	}
+		std::cout << std::endl << std::endl << std::endl;
 	{
 		std::cout << "---- Both ----" << std::endl;
 		ClapTrap Fernando("Fernando");
@@ -63,28 +63,13 @@ int main() {
 		std::cout << "ScavTrap hit points: " << Tony.getHitPoints() << std::endl;
 		std::cout << "ScavTrap energy: " << Tony.getEnergyPoints() << std::endl;
 		
-		Kim.highFivesGuys();
-
-		Fernando.setAttackDamage(3);
 		std::cout << std::endl;
-
-		Fernando.attack(Tony.getName());
-		Tony.takeDamage(Fernando.getAttackDamage());
-		Tony.attack(Fernando.getName());
-		Fernando.takeDamage(Tony.getAttackDamage());
-		Fernando.attack(Tony.getName());
-		std::cout << "hohoodogfofgdohfgohfod" << std::endl << std::endl;
-		
-		Tony.attack(Kim.getName());
-		Kim.takeDamage(Kim.getAttackDamage());
-		Kim.attack(Tony.getName());
-		Tony.takeDamage(Tony.getAttackDamage());
+		Kim.highFivesGuys();
 
 		Tony.setEnergyPoints(0);
 		Tony.attack(Fernando.getName());
-		
-		Tony.guardGate();
 		std::cout << std::endl;
+		Tony.guardGate();
 	}
 	return (0);
 }
