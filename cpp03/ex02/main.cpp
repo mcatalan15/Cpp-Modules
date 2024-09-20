@@ -28,27 +28,63 @@
 		- Call the guard gate function of the second instance.
 */
 
-int main()
-{
+int main() {
+	std::cout << "---- Start ----" << std::endl;
+	{
+		std::cout << "---- Alone ----" << std::endl;
+		FragTrap Empty;
+		ClapTrap Pedro("PedroClap");
+		ScavTrap Jon("JonScav");
+		FragTrap Marc("MarcFrag");
 
-	FragTrap Empty;
-	ClapTrap Pedro("PedroClap");
-	ScavTrap Jon("JonScav");
-	FragTrap Marc("TeoFrag");
+		Marc.attack("Miami");
+		Marc.takeDamage(50);
+		Marc.beRepaired(30);
+		Marc.highFivesGuys();
 
-	Marc.attack("Miami");
-	Marc.takeDamage(50);
-	Marc.beRepaired(30);
-	Marc.highFivesGuys();
+		Jon.guardGate();
+		Jon.beRepaired(10);
+		Jon.attack("Francia");
 
-	Jon.guardGate();
-	Jon.beRepaired(10);
-	Jon.attack("Miami");
+		Marc.takeDamage(150);
+		Jon.takeDamage(150);
 
-	Marc.takeDamage(150);
-	Jon.takeDamage(150);
+		Marc.takeDamage(150);
+		std::cout << std::endl << std::endl << std::endl;
+	}
+	{
+		std::cout << "---- Both ----" << std::endl;
+		ClapTrap Fernando("Fernando");
+		ScavTrap Tony("Tony");
+		FragTrap Kim("Kim");
 
-	Marc.takeDamage(150);
+		std::cout << std::endl;
+		std::cout << "ScavTrap attack: " << Tony.getAttackDamage() << std::endl; 
+		std::cout << "ScavTrap hit points: " << Tony.getHitPoints() << std::endl;
+		std::cout << "ScavTrap energy: " << Tony.getEnergyPoints() << std::endl;
+		
+		Kim.highFivesGuys();
 
+		Fernando.setAttackDamage(3);
+		std::cout << std::endl;
+
+		Fernando.attack(Tony.getName());
+		Tony.takeDamage(Fernando.getAttackDamage());
+		Tony.attack(Fernando.getName());
+		Fernando.takeDamage(Tony.getAttackDamage());
+		Fernando.attack(Tony.getName());
+		std::cout << "hohoodogfofgdohfgohfod" << std::endl << std::endl;
+		
+		Tony.attack(Kim.getName());
+		Kim.takeDamage(Kim.getAttackDamage());
+		Kim.attack(Tony.getName());
+		Tony.takeDamage(Tony.getAttackDamage());
+
+		Tony.setEnergyPoints(0);
+		Tony.attack(Fernando.getName());
+		
+		Tony.guardGate();
+		std::cout << std::endl;
+	}
 	return (0);
 }

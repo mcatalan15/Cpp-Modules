@@ -58,3 +58,26 @@ void ScavTrap::guardGate() {
 	std::cout << std::endl << std::endl;
 }
 
+//Functions
+/*
+	Attack function:
+
+	Simulation of an attack.
+		- If the hit points are 0, the ClapTrap can not attack.
+		- If the energy points are 0, the ClapTrap can not attack.
+		- If the ClapTrap can attack, the energy points are reduced by 1.
+*/
+void	ScavTrap::attack(const std::string &target) {
+	if ( this->_hitPoints == 0)
+		std::cout << "ScavTrap " << this->_name << " can not attack (0 hit points)." << std::endl;
+	else if (this->_energyPoints == 0)
+		std::cout << "ScavTrap " << this->_name << " can not attack (0 energy points)." << std::endl;
+	else {
+		this->_energyPoints--;
+		std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage;
+		std::cout << " points of damage!" <<std::endl;
+
+		std::cout << this->_name << " has " << this->_hitPoints << " hit points and " << this->_energyPoints;
+		std::cout << " energy points." << std::endl << std::endl;
+	}
+}

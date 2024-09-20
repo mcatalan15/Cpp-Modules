@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const ClapTrap &cpy) {
 }
 
 // Destructor
-ClapTrap::~ClapTrap() { std::cout << "ClapTrap copy destructor called: " << this->_name << std::endl; }
+ClapTrap::~ClapTrap() { std::cout << "ClapTrap destructor called: " << this->_name << std::endl; }
 
 // Copy assignment operator
 ClapTrap &ClapTrap::operator=(const ClapTrap &cpy) {
@@ -62,9 +62,9 @@ void	ClapTrap::setName(const std::string &name) { this->_name = name; }
 
 void	ClapTrap::setHitPoints(int const hitPoints) { this->_hitPoints = hitPoints; }
 
-void	ClapTrap::setEnergyPoints(int const energyPoints) { this->_name = energyPoints; }
+void	ClapTrap::setEnergyPoints(int const energyPoints) { this->_energyPoints = energyPoints; }
 
-void	ClapTrap::setAttackDamage(int const attackDamage) { this->_name = attackDamage; }
+void	ClapTrap::setAttackDamage(int const attackDamage) { this->_attackDamage = attackDamage; }
 
 // Functions
 /*
@@ -102,9 +102,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		this->_hitPoints -= amount;
 		if (this->_hitPoints < 0)
 			this->_hitPoints = 0;
-		std::cout << "ClapTrap " << this->_name << "has been damage with " << amount << "hit points" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " has been damage with " << amount << " hit points" << std::endl;
 		std::cout << this->_name << " has " << this->_hitPoints << " hit points and ";
-		std::cout << this->_energyPoints << "energy points." << std::endl << std::endl;
+		std::cout << this->_energyPoints << " energy points." << std::endl << std::endl;
 	}
 	else
 		std::cout << "ClapTrap " << this->_name << " can not be damaged (0 hit points)" << std::endl << std::endl;

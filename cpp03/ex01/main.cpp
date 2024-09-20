@@ -29,23 +29,26 @@
 
 int main()
 {
-	ClapTrap a("Fernando");
-	ScavTrap b("Alonso");
+	ClapTrap Fernando("Fernando");
+	ScavTrap Tony("Tony");
 
 	std::cout << std::endl;
-	std::cout << "ScavTrap: att: " << b.getAttackDamage() << " hp: " << b.getHitPoints() << " energy: " << b.getEnergyPoints() << std::endl;
-	a.setAttackDamage(2);
+	std::cout << "ScavTrap attack: " << Tony.getAttackDamage() << std::endl; 
+	std::cout << "ScavTrap hit points: " << Tony.getHitPoints() << std::endl;
+	std::cout << "ScavTrap energy: " << Tony.getEnergyPoints() << std::endl;
+	
+	Fernando.setAttackDamage(3);
 	std::cout << std::endl;
 
-	a.attack(b.getName());
-	b.takeDamage(a.getAttackDamage());
-	b.attack(a.getName());
-	a.takeDamage(b.getAttackDamage());
-	a.attack(b.getName());
-	b.setEnergyPoints(0);
-	b.attack(a.getName());
+	Fernando.attack(Tony.getName());
+	Tony.takeDamage(Fernando.getAttackDamage());
+	Tony.attack(Fernando.getName());
+	Fernando.takeDamage(Tony.getAttackDamage());
+	Fernando.attack(Tony.getName());
+	Tony.setEnergyPoints(0);
+	Tony.attack(Fernando.getName());
 
-	b.guardGate();
+	Tony.guardGate();
 	std::cout << std::endl;
 	return 0;
 }

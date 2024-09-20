@@ -40,6 +40,7 @@ class	ScavTrap: public ClapTrap {
 		ScavTrap &operator=(const ScavTrap &src);
 
 		void guardGate();
+		virtual void		attack(const std::string &target);
 };
 
 #endif

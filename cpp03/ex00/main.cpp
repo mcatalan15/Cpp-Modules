@@ -19,7 +19,9 @@
 */
 
 int main(void) {
-	
+	std::cout << "---- Start ----" << std::endl;
+	{
+	std::cout << "---- Alone ----" << std::endl;
 	ClapTrap Marc("Marc");
 	ClapTrap Jon("Jon");
 
@@ -41,6 +43,33 @@ int main(void) {
 	Jon.attack("10");
 	Jon.attack("11");
 	Jon.beRepaired(15);
+	std::cout << std::endl << std::endl << std::endl;
+	}
+	{
+	std::cout << "---- Both ----" << std::endl;
+	ClapTrap Elon("Elon");
+	ClapTrap Mark("Mark");
 
+	Elon.setAttackDamage(3);
+	Mark.setAttackDamage(1);
+
+	Elon.attack(Mark.getName());
+	Mark.takeDamage(Elon.getAttackDamage());
+
+	Mark.attack(Elon.getName());
+	Elon.takeDamage(Mark.getAttackDamage());
+
+	Mark.attack(Elon.getName());
+	Elon.takeDamage(Mark.getAttackDamage());
+
+	if (Elon.getHitPoints() < Mark.getHitPoints())
+		std::cout << "Mark wins!" << std::endl;
+	else if (Elon.getHitPoints() > Mark.getHitPoints())
+		std::cout << "Elon wins!" << std::endl;
+	else
+		std::cout << "It's a tie!" << std::endl;
+	std::cout << std::endl;
+	}
+	std::cout << "---- End ----" << std::endl;
 	return (0);
 }
