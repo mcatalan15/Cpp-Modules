@@ -55,7 +55,7 @@ FragTrap &FragTrap::operator=(const FragTrap &src) {
 */
 
 void FragTrap::highFivesGuys() {
-	std::cout << "FragTrap" << this->_name << " has High Fives US! 🖐️";
+	std::cout << "FragTrap " << this->_name << " has High Fives US! 🖐️";
 	std::cout << std::endl << std::endl;
 }
 
