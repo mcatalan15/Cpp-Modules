@@ -16,20 +16,17 @@
 
 int	main()
 {
-	/*const Animal* i = new Cat();
-	//const Cat *i = new Cat();
-	
-	delete i;*/
-	
-	/*Dog	d1;
-	Dog	d2(d1); //use also copy constructor
+	std::cout << "------- Ideas mem addr -------" << std::endl;
+	Dog	Dog1;
+	Dog	Dog2(Dog1);
 
 	std::cout << std::endl;
-	//d2 = d1;
+	// Dog2 = Dog1;
 
-	std::cout << "d1 address: " << &d1 << "\nd2 address: " << &d2 << std::endl;
-	std::cout << "d1 brain address: " << d1.getBrain() << "\nd2 brain address: " << d2.getBrain() << std::endl;*/
-
+	std::cout << "Dog1 address: " << &Dog1 << "\nDog2 address: " << &Dog2 << std::endl;
+	std::cout << "Dog1 brain address: " << Dog1.getBrain() << "\nDog2 brain address: " << Dog2.getBrain() << std::endl;
+	
+	std::cout << std::endl << "------- For test -------" << std::endl;
 	int	num = 6;
 	Animal*	animals[num];
 
@@ -42,6 +39,6 @@ int	main()
 	for (int i = 0; i < num; i++)
 		delete animals[i];
 
-	std::cout << std::endl;
+	std::cout << "------- End -------" << std::endl;
 	return 0;
 }
