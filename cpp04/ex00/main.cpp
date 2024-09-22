@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:36:21 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 18:16:20 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/20 17:12:37 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,77 +14,35 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-void basicTests()
-{
+int	main (void) {
+	std::cout << std::endl << "My test..." << std::endl;
+	std::cout << "Creating animals..." << std::endl;
+	const Animal *animal = new Animal();
+	const Animal *dog = new Dog();
+	const Animal *cat = new Cat();
 
-	std::cout << std::endl
-			  << "---- My own tests----" << std::endl;
+	std::cout << std::endl << "Animal types:" << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
 
-	std::cout << std::endl
-			  << "---- Constructors ----" << std::endl
-			  << std::endl;
+	std::cout << "\nCreating wrong animals..." << std::endl;
 
-	Animal AnimalGen;
-	Cat Garfield;
-	Dog Oddie;
+	const WrongAnimal *wrongAnimal = new WrongAnimal();
+	const WrongAnimal *wrongCat = new WrongCat();
 
-	std::cout << std::endl
-			  << "---- Make sounds ----" << std::endl
-			  << std::endl;
+	std::cout << "\nSounds:" << std::endl;
+	cat->makeSound();  // should output the cat sound
+	dog->makeSound();  // should output the dog sound
+	animal->makeSound(); // should output a generic animal sound
+	std::cout << "\nWrongAnimal sounds:" << std::endl;
+	wrongCat->makeSound();	// should output the wrong animal sound
+	wrongAnimal->makeSound(); // should output a generic wrong animal sound
 
-	std::cout << "Animal makes ";
-	AnimalGen.makeSound();
-	std::cout << "Cat makes ";
-	Garfield.makeSound();
-	std::cout << "Dog makes ";
-	Oddie.makeSound();
-
-	std::cout << std::endl
-			  << "---- Destructors ----" << std::endl
-			  << std::endl;
-}
-
-void mandatoryTest()
-{
-
-	std::cout << std::endl
-			  << "---- Mandatory test----" << std::endl
-			  << std::endl;
-	const Animal *meta = new Animal();
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-
-	delete i;
-	delete j;
-	delete meta;
-}
-
-void failTests()
-{
-	std::cout << std::endl
-			  << "---- Fail test----" << std::endl
-			  << std::endl;
-	const WrongAnimal *meta = new WrongAnimal();
-	const WrongAnimal *i = new WrongCat();
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	meta->makeSound();
-
-	delete i;
-	delete meta;
-}
-
-int main()
-{
-
-	basicTests();
-	mandatoryTest();
-	failTests();
-
-	return (0);
+	std::cout << "\nCleaning up..." << std::endl;
+	delete animal;
+	delete dog;
+	delete cat;
+	delete wrongAnimal;
+	delete wrongCat;
+	return 0;
 }

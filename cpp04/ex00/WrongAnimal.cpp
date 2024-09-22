@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 18:12:12 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 18:20:35 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/20 17:11:22 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 WrongAnimal::WrongAnimal() {
 	this->_type = "undefined";
-	std::cout << "Animal default constructor called. Type:" << this->getType() << std::endl;
+	std::cout << "WrongAnimal default constructor called. Type:" << this->getType() << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const std::string &type) {
 	this->_type = type;
-	std::cout << "Animal constructor called. Type:" << this->getType() << std::endl;
+	std::cout << "WrongAnimal constructor called. Type:" << this->getType() << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &src) {
 	*this = src;
-	std::cout << "Animal copy constructor called. Type:" << this->getType() << std::endl;
+	std::cout << "WrongAnimal copy constructor called. Type:" << this->getType() << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {
-	std::cout << "Animal destructor called. Type:" << this->getType() << std::endl;
+	std::cout << "WrongAnimal destructor called. Type:" << this->getType() << std::endl;
 }
 
 // operator "="
@@ -38,7 +38,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 	{
 		this->_type = src.getType();
 	}
-	std::cout << "Animal copy assignment operator called.Type: " << this->getType() << std::endl;
+	std::cout << "WrongAnimal copy assignment operator called.Type: " << this->getType() << std::endl;
 	return (*this);
 }
 

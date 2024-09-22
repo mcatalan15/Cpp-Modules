@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/09/13 17:37:29 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/09/20 16:58:23 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,9 @@ OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 CPP     := c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP
+CPPFLAGS := -W -Wall -Wextra -Werror
 
-RM      := @rm -rfv
+RM      := @rm -rf
 
 all:    $(NAME)
 
