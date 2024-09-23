@@ -19,6 +19,7 @@ class WrongCat: public WrongAnimal {
 
 	public:
 		WrongCat();
+		WrongCat(const string &type);
 		WrongCat(const WrongCat &src);
 		~WrongCat();
 
