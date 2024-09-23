@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 18:01:11 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 18:06:57 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:35:44 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ Cat::Cat(): Animal("cat") {
 Cat::Cat(const Cat &src) : Animal(src) {
 	*this = src;
 	std::cout << "Cat copy constructor called." << std::endl;
+}
+
+Cat::Cat(const std::string &type) : Animal(type) {
+	this->_type = type;
+	std::cout << "Cat constructor called." << std::endl;
 }
 
 Cat::~Cat() { std::cout << "Cat destructor called." << std::endl; }

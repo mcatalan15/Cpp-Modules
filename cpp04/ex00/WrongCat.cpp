@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 18:14:29 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/20 17:11:37 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:37:44 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ WrongCat::WrongCat() : WrongAnimal("Wrongcat")
 	std::cout << "WrongCat default constructor called." << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const std::string &type) {
+WrongCat::WrongCat(const std::string &type) : WrongAnimal(type)
+{
 	this->_type = type;
-	std::cout << "WrongAnimal constructor called. Type:" << this->getType() << std::endl;
+	std::cout << "WrongCat constructor called." << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src)

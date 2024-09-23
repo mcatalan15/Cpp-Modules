@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:42:37 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 17:45:00 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:34:47 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Cat: public Animal {
 	
 	public:
 		Cat();
+		Cat(const std::string &type);
 		Cat(const Cat &src);
 		~Cat();
 

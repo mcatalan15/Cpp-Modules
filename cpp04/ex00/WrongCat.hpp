@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:50:46 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 17:52:50 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:30:41 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class WrongCat: public WrongAnimal {
 
 	public:
 		WrongCat();
-		WrongCat(const string &type);
+		WrongCat(const std::string &type);
 		WrongCat(const WrongCat &src);
 		~WrongCat();
 

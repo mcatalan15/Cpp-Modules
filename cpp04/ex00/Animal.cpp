@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:36:26 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 18:21:13 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:30:56 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,9 @@ Animal::~Animal() {
 // operator "="
 Animal &Animal::operator=(const Animal &src)
 {
-	if (this != &src)
-	{
-		this->_type = src.getType();
-	}
 	std::cout << "Animal copy assignment operator called.Type: " << this->getType() << std::endl;
+	if (this != &src)
+		this->_type = src.getType();
 	return (*this);
 }
 

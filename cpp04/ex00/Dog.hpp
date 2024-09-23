@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:45:10 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/13 18:11:54 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/23 11:38:14 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Dog: public Animal {
 
 	public:
 		Dog();
+		Dog(const std::string &type);
 		Dog(const Dog &src);
 		~Dog();
 
