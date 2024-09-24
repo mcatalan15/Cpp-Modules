@@ -30,7 +30,6 @@ class Dog: public Animal {
 		Brain	*getBrain() const;
 		void	setBrain(Brain *brain);
 
-		void makeSound();
 		void makeSound() const;
 };
 

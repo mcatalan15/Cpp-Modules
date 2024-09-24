@@ -27,7 +27,6 @@ class Cat: public AAnimal {
 		Brain *getBrain() const;
 		void setBrain(Brain *brain);
 
-		void makeSound();
 		void makeSound() const;
 
 	private:

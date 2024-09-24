@@ -24,7 +24,6 @@ class WrongCat: public WrongAnimal {
 
 		WrongCat &operator=(const WrongCat &src);
 
-		void makeSound();
 		void makeSound() const;
 };
 

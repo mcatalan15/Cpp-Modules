@@ -12,18 +12,15 @@
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() {
-	this->_type = "undefined";
+WrongAnimal::WrongAnimal() : _type("undefined") {
 	std::cout << "Animal default constructor called. Type:" << this->getType() << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const std::string &type) {
-	this->_type = type;
+WrongAnimal::WrongAnimal(const std::string &type) : _type(type) {
 	std::cout << "Animal constructor called. Type:" << this->getType() << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src) {
-	*this = src;
+WrongAnimal::WrongAnimal(const WrongAnimal &src) : _type(src._type) {
 	std::cout << "Animal copy constructor called. Type:" << this->getType() << std::endl;
 }
 
@@ -35,9 +32,7 @@ WrongAnimal::~WrongAnimal() {
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 {
 	if (this != &src)
-	{
-		this->_type = src.getType();
-	}
+		this->_type = src._type;
 	std::cout << "Animal copy assignment operator called.Type: " << this->getType() << std::endl;
 	return (*this);
 }
@@ -45,8 +40,7 @@ WrongAnimal &WrongAnimal::operator=(const WrongAnimal &src)
 // GETTER
 std::string WrongAnimal::getType() const { return (_type); }
 // SETTER
-void WrongAnimal::setType(const std::string &type) { this->_type = type; }
+void WrongAnimal::setType(const std::string &type) { _type = type; }
 
 // FUNCTIONS
-void WrongAnimal::makeSound() { std::cout << "...Silence..." << std::endl; }
 void WrongAnimal::makeSound() const { std::cout << "...Silence..." << std::endl; }

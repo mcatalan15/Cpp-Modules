@@ -19,7 +19,7 @@
 #include "Brain.hpp"
 
 class AAnimal {
-	
+
 	protected:
 		std::string _type;
 	
@@ -33,6 +33,7 @@ class AAnimal {
 		
 		std::string getType() const;
 		void		setType(const std::string &type);
+		virtual	void makeSound() const = 0;
 };
 
 #endif

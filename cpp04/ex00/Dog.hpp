@@ -25,7 +25,6 @@ class Dog: public Animal {
 
 		Dog &operator=(const Dog &src);
 
-		void makeSound();
 		void makeSound() const;
 };
 

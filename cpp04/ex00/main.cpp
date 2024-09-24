@@ -15,58 +15,36 @@
 #include "WrongCat.hpp"
 
 int	main (void) {
-	// std::cout << std::endl << "My test..." << std::endl;
-	// std::cout << "Creating animals..." << std::endl;
-	// const Animal *animal = new Animal();
-	// const Animal *dog = new Dog();
-	// const Animal *cat = new Cat();
-
-	// std::cout << std::endl << "Animal types:" << std::endl;
-	// std::cout << dog->getType() << " " << std::endl;
-	// std::cout << cat->getType() << " " << std::endl;
-
-	// std::cout << "\nCreating wrong animals..." << std::endl;
-
-	// const WrongAnimal *wrongAnimal = new WrongAnimal();
-	// const WrongAnimal *wrongCat = new WrongCat();
-
-	// std::cout << "\nSounds:" << std::endl;
-	// cat->makeSound();  // should output the cat sound
-	// dog->makeSound();  // should output the dog sound
-	// animal->makeSound(); // should output a generic animal sound
-	// std::cout << "\nWrongAnimal sounds:" << std::endl;
-	// wrongCat->makeSound();	// should output the wrong animal sound
-	// wrongAnimal->makeSound(); // should output a generic wrong animal sound
-
-	// std::cout << "\nCleaning up..." << std::endl;
-	// delete animal;
-	// delete dog;
-	// delete cat;
-	// delete wrongAnimal;
-	// delete wrongCat;
-	// return 0;
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	{
+	std::cout << std::endl << "----- ANIMALS -----" << std::endl;
+	const	Animal	*animal = new Animal();
+	const	Animal	*dog = new Dog();
+	const	Animal	*cat = new Cat();
 
 	std::cout << std::endl;
-	std::cout << j->getType() << ": ";
-	j->makeSound();
-	std::cout << i->getType() << ": ";
-	i->makeSound(); //will output the cat sound!
+	std::cout << dog->getType() << ": ";
+	dog->makeSound();
+	std::cout << cat->getType() << ": ";
+	cat->makeSound(); //will output the cat sound!
 
-	meta->makeSound();
-	
-	std::cout << std::endl;
-	const	WrongAnimal	wg = WrongCat();
-	//const	WrongCat	wg("WrongCat");
+	animal->makeSound();
+	delete animal;
+	delete dog;
+	delete cat;
+	}
+	{
+	std::cout << std::endl << "----- WRONGANIMALS -----" << std::endl;
+	const	WrongAnimal	*wronganimal = new WrongAnimal();
+	const	WrongAnimal	*wrongcat = new WrongCat("WrongCat");
 
-	std::cout << wg.getType() << ": ";
-	wg.makeSound();
+	std::cout << "WrongAimal: " << wronganimal->getType() << ": ";
+	wronganimal->makeSound();
+	std::cout << "WrongCat: " << wrongcat->getType() << ": ";
+	wrongcat->makeSound();
 
-	std::cout << std::endl;
-	delete meta;
-	delete i;
-	delete j;
+	delete wronganimal;
+	delete wrongcat;
+	}
+	std::cout << "----- END -----" << std::endl;
 	return 0;
 }

@@ -23,7 +23,7 @@ class WrongAnimal {
 		std::string _type;
 	public:
 		WrongAnimal();
-		WrongAnimal(const std::string &type);
+		WrongAnimal(const std::string type);
 		WrongAnimal(const WrongAnimal &src);
 		~WrongAnimal();
 	
@@ -32,7 +32,6 @@ class WrongAnimal {
 		std::string getType() const;
 		void		setType(const std::string &type);
 	
-		void makeSound();
 		void makeSound() const;
 };
 
