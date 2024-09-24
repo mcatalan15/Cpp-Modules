@@ -6,13 +6,19 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 17:36:21 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/09/20 17:12:37 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/09/24 21:26:57 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongCat.hpp"
+
+/*
+	With this main we can see how Cat and Dog interact with the Animal class.
+	We can see that the makeSound method is virtual and that the output is different
+	for each object.
+*/
 
 int	main (void) {
 	{
@@ -25,7 +31,7 @@ int	main (void) {
 	std::cout << dog->getType() << ": ";
 	dog->makeSound();
 	std::cout << cat->getType() << ": ";
-	cat->makeSound(); //will output the cat sound!
+	cat->makeSound();
 
 	animal->makeSound();
 	delete animal;
