@@ -19,22 +19,23 @@ int	main()
 	const AAnimal* i = new Cat();
 	
 	//Cases:
+	//Creating a pointer works
 	// const AAnimal *bear;
 	// (void) bear;
-	// delete bear;
+
+	// Creating an AAnimal obect called pedro is not possible
 	// const AAnimal pedro;
 	// (void) pedro;
 
-
 	delete i;
 	
-	Dog	d1;
-	Dog	d2(d1); //use also copy constructor
+	Dog	Dog1;
+	Dog	Dog2(Dog1);
 
 	std::cout << std::endl;
 
-	std::cout << "d1 address: " << &d1 << "\nd2 address: " << &d2 << std::endl;
-	std::cout << "d1 brain address: " << d1.getBrain() << "\nd2 brain address: " << d2.getBrain() << std::endl;
+	std::cout << "Dog1 address: " << &Dog1 << "\nDog2 address: " << &Dog2 << std::endl;
+	std::cout << "Dog1 brain address: " << Dog1.getBrain() << "\nDog2 brain address: " << Dog2.getBrain() << std::endl;
 
 	int	num = 6;
 	AAnimal*	animals[num];
