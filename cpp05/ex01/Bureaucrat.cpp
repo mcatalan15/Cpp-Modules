@@ -60,6 +60,23 @@ void	Bureaucrat::decrementGrade(unsigned int decrement) {
 		this->_grade += decrement;
 }
 
+void	Bureaucrat::signForm(Form & form){
+	if (form.getIsSigned()){
+		throw Form::FormIsSignedException("");
+	}
+	else {
+		try{
+			form.beSigned(*this);
+			std::cout << GREEN << form.getName() << " is signed by " << this->_name << RESET << std::endl;  
+		}
+		catch (std::out_of_range & e){
+			std::cout << this->_name << " could not sign " << form.getName() << \
+			" beacuse " << e.what() << std::endl;;
+
+		}
+	}
+}
+
 // Exception
 const char	*Bureaucrat::GradeTooHighException::what () const throw () { return("Range too high"); }
 

@@ -16,7 +16,7 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	Polymorphism
+NAME    :=	Bureaucrat
 
 SRC     :=	main.cpp		\
 		Bureaucrat.cpp		\
@@ -27,7 +27,7 @@ OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 CPP     := c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -fsanitize=address
+CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP
 
 RM      := @rm -rf
 

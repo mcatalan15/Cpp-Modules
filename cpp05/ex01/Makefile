@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/09/20 16:58:23 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/10/12 18:34:06 by mcatalan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,11 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	Polymorphism
+NAME    :=	Bureaucrat
 
 SRC     :=	main.cpp		\
-			Animal.cpp		\
-			Cat.cpp			\
-			Dog.cpp			\
-			WrongAnimal.cpp	\
-			WrongCat.cpp	\
+		Bureaucrat.cpp		\
+		Form.cpp		\
 
 OBJ_DIR := obj
 
@@ -31,7 +28,7 @@ OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 CPP     := c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -fsanitize=address
+CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP
 
 RM      := @rm -rf
 
