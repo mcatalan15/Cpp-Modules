@@ -1,35 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 11:56:41 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/10/21 12:02:02 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
 using std::string;
 
 // Default constructor
-Form::Form() : _name("uname"), _isSign(false), _gradeToSign(MAX_GRADE), _gradeToExecute(MAX_GRADE) {}
+Form::Form() : _name("uname"), _isSign(false), _signGrade(MAX_GRADE), _execGrade(MAX_GRADE) {}
 
 // Constructor
-Form::Form(const string &name, const unsgined int gradeToSign, const unsigned int gradeToExecute) : _name(name), _isSign(false) {
+Form::Form(const string &name, const unsigned int gradeToSign, const unsigned int gradeToExecute)
+	: _name(name), _isSign(false), _signGrade(gradeToSign), _execGrade(gradeToExecute)
+{
 	if (gradeToSign < MIN_GRADE || gradeToExecute < MIN_GRADE)
 		throw Form::GradeTooHighException("Form cannot be constructed.");
-	else if (gradeToSign < MIN_GRADE || gradetoExecute > MAX_GRADE)
-		throw From::GradeTooLowException("Form cannot be constructed. ");
-	else {
-		this->_gradeToSign = gradeToSign;
-		this->_gradeToExecute = gradeToExecute;
-	}
+	else if (gradeToSign > MAX_GRADE || gradeToExecute > MAX_GRADE)
+		throw Form::GradeTooLowException("Form cannot be constructed.");
 }
 
 // Copy constructor
-Form::Form(const Form &src) { *this = src; }
+Form::Form(const Form &src)
+	: _name(src._name), _isSign(src._isSign), _signGrade(src._signGrade), _execGrade(src._execGrade) {}
 
 // Destructor
 Form::~Form() {}
 
 // Copy operator "="
 Form &Form::operator=(const Form &src) {
-	if (this != &src) {
+	if (this != &src)
 		this->_isSign = src.getIsSigned();
-		this->_gradeToSign = src.getGradeToSign();
-		this->_gradeToExecute = src.getGradeToExecute();
-	}
 	return (*this);
 }
 
@@ -38,25 +46,29 @@ string	Form::getName() const { return(_name); }
 
 bool	Form::getIsSigned() const { return(_isSign); }
 
-unsigned int	Form::getGradeToSign() const { return(_gradeToSign); }
+unsigned int	Form::getGradeToSign() const { return(_signGrade); }
 
-unsigned int	Form::getGradeToExecute() const { return(_gradeToExecute); }
+unsigned int	Form::getGradeToExecute() const { return(_execGrade); }
 
 
 // Setters
 void	Form::setIsSigned(const bool isSigned) { this->_isSign = isSigned; }
 
-void	Form::setGradeToSign(const unsigned int &gradeToSign) { this->_gradeToSign = gradeToSign; }
+// Remove these functions:
+void setGradeToSign(const unsigned int &gradeToSign);
+void setGradeToExecute(const unsigned int &gradeToExecute);
 
-void	Form::setGradeToExecute(const unsigned int &gradeToExecute) { this->_gradeToExecute = gradeToExecute; }
+// void	Form::setGradeToSign(const unsigned int &gradeToSign) { this->_signGrade = gradeToSign; }
+
+// void	Form::setGradeToExecute(const unsigned int &gradeToExecute) { this->_execGrade = gradeToExecute; }
 
 
 // Functions
 void	Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > this->_gradeToSign)
-		throw From::GradeTooLowException("Form can not be signed.");
+	if (bureaucrat.getGrade() > this->_signGrade)
+		throw Form::GradeTooLowException("Form can not be signed.");
 	if (this->_isSign)
-		throw From::FormIsSignedException("Form is already signed.");
+		throw Form::FormIsSignedException("Form is already signed.");
 	else {
 		this->_isSign = true;
 		std::cout << GREEN << bureaucrat.getName() << " has signed " << this->_name << RESET << std::endl;

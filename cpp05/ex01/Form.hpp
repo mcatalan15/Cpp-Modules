@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 11:56:43 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/10/21 12:03:53 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FORM_HPP
 #define FORM_HPP
 
@@ -9,10 +21,10 @@ class	Bureaucrat;
 class Form {
 
 	private:
-		const	string	_name;
-		bool		_isSign;
-		const	int	_signGrade;
-		const	int	_execGrade;
+		const	string		_name;
+		bool				_isSign;
+		const unsigned int	_signGrade;
+		const unsigned int	_execGrade;
 	
 	public:
 		Form();

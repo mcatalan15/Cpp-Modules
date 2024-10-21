@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/21 11:56:38 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/10/21 11:56:39 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -13,6 +25,8 @@
 # define RED "\033[31m"
 # define GREEN "\033[32m"
 # define YELLOW "\033[38:5:220m"
+
+class Form;
 
 class  Bureaucrat {
 
