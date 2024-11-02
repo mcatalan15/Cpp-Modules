@@ -1,13 +1,15 @@
 #include <iostream>
 #include <string>
 
+using std::string;
+
 class	Student
 {
 	private:
-		std::string _login;
+		string _login;
 
 	public:
-		Student(std::string login) : _login(login) {
+		Student(string login) : _login(login) {
 
 		std::cout << "Student " << this->_login << "is born" << std::endl;
 		}

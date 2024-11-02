@@ -1,24 +1,26 @@
 #include <iostream>
 #include <string>
 
-void	byPtr(std::string *str) {
+using std::string;
+
+void	byPtr(string *str) {
 	*str += " and ponies";
 }
 
-void	byConstPtr(std::string const *str) {
+void	byConstPtr(string const *str) {
 	std::cout << *str << std::endl;
 }
 
-void	byRef(std::string &str) {
+void	byRef(string &str) {
 	str  += " and ponies";
 }
 
-void	byConstRef(std::string const &str) {
+void	byConstRef(string const &str) {
 	std::cout << str << std::endl;
 }
 
 int	main() {
-	std::string str = "i like butterflies";
+	string str = "i like butterflies";
 
 	std::cout << str << std::endl;
 	byPtr(&str);

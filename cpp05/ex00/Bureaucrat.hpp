@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:34:08 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/24 10:52:56 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/10/24 19:23:16 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,25 @@
 # define RESET "\033[0m"
 # define  CYAN "\033[36m" 
 
+using std::string;
+
 class  Bureaucrat {
 
 	private:
-		const std::string	_name;	// Const because it should not be modified
+		const string	_name;	// Const because it should not be modified
 		unsigned int		_grade;	// Grade between 1 and 150
 
 	public:
 		// Constructors, destructor, operator '=' (canonical form)
 		Bureaucrat();	
-		Bureaucrat(const std::string &name, const unsigned int grade);
+		Bureaucrat(const string &name, const unsigned int grade);
 		Bureaucrat(const Bureaucrat &cpy);
 		~Bureaucrat();
 		
 		Bureaucrat&	operator=(const Bureaucrat &cpy);
 		
 		// Getters
-		std::string	getName() const;
+		string	getName() const;
 		unsigned int	getGrade() const;
 		
 		// Grade increment and decrement functions

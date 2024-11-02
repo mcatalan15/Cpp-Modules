@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 10:21:34 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/02 17:42:02 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/10/23 10:21:07 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/11/02 17:35:22 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP 
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
-#include "AForm.hpp"
+# include <iostream>
+# include "AForm.hpp"
 
 // Minimum grade to sign the form and execute the form
-#define MIN_GRADE_SIGN_SC 145
-#define MIN_GRADE_EXECUTE_SC 137
+# define MIN_GRADE_SIGN_PP 25
+# define MIN_GRADE_EXECUTE_PP 5
 
 using std::string;
 
@@ -33,22 +33,24 @@ using std::string;
 	
 	Also we will overload the operator "<<" to print the form information.
 */
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm{
+	
 	private:
-		const string _target;
+ 		const string	_target;
+	
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const string &target);
-		ShrubberyCreationForm(const ShrubberyCreationForm &src);
-		~ShrubberyCreationForm();
+		PresidentialPardonForm();
+		PresidentialPardonForm(const string & target);
+		PresidentialPardonForm(const PresidentialPardonForm & src);
+		~PresidentialPardonForm();
 
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
+		PresidentialPardonForm & operator=(const PresidentialPardonForm & src);
 
-		string getTarget() const;
+		string 	getTarget() const;
 
-		void executeConcreteForm() const;
+		void	executeConcreteForm() const;
 };
 
-std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &SCform);
+std::ostream &	operator<<(std::ostream & out, const PresidentialPardonForm & SCform);
 
 #endif

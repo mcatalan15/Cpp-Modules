@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:38 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/21 11:56:39 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/10/24 19:25:06 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
 # define MAX_GRADE	150
 # define MIN_GRADE	1
@@ -26,17 +26,19 @@
 # define GREEN "\033[32m"
 # define YELLOW "\033[38:5:220m"
 
+using std::string;
+
 class AForm; 
 
 class  Bureaucrat {
 
 	private:
-		const std::string	_name;
+		const string	_name;
 		unsigned int		_grade;
 
 	public:
 		Bureaucrat();	
-		Bureaucrat(const std::string &name, const unsigned int grade);
+		Bureaucrat(const string &name, const unsigned int grade);
 		Bureaucrat(const Bureaucrat &cpy);
 		~Bureaucrat();
 		
@@ -48,7 +50,7 @@ class  Bureaucrat {
 		void		incrementGrade(unsigned int increment);
 		void		decrementGrade(unsigned int decrement);
 
-		void		signForm(Form &form);
+		void		signForm(AForm &form);
     void    executeForm(AForm const &form);
 
 		class GradeTooLowException : public std::exception {

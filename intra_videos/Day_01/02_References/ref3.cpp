@@ -1,21 +1,23 @@
 #include <iostream>
 #include <string>
 
+using std::string;
+
 class	Student	{
 	private:
-		std::string _login;
+		string _login;
 	public:
-		Student(std::string const &login) : _login(login){}
-		std::string &getLoginRef() {
+		Student(string const &login) : _login(login){}
+		string &getLoginRef() {
 			return this->_login;
 		}
-		std::string const &getLoginRefConst() const {
+		string const &getLoginRefConst() const {
 			return this->_login;
 		}
-		std::string *getLoginPtr() {
+		string *getLoginPtr() {
 			return &(this->_login);
 		}
-		std::string const *getLoginPtrConst() const {
+		string const *getLoginPtrConst() const {
 			return &(this->_login);
 		}
 };

@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/10/12 18:34:06 by mcatalan         ###   ########.fr        #
+#    Updated: 2024/10/23 10:39:43 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,12 @@ RST = \033[0m
 
 NAME    :=	Bureaucrat
 
-SRC     :=	main.cpp		\
-		Bureaucrat.cpp		\
-		Form.cpp		\
+SRC     :=	main.cpp					\
+			Bureaucrat.cpp				\
+			AForm.cpp  					\
+			ShrubberyCreationForm.cpp	\
+			RobotomyRequestForm.cpp		\
+			PresidentialPardonForm.cpp	\
 
 OBJ_DIR := obj
 
@@ -28,7 +31,7 @@ OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 CPP     := c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP
+CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -fsanitize=address
 
 RM      := @rm -rf
 

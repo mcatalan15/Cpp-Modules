@@ -1,5 +1,7 @@
 #include <string>
 
+using std::string;
+
 class Cat {
 
 	private:
@@ -12,7 +14,7 @@ class Cat {
 		~Cat();
 
 		void	run(int distance);
-		void	scornSomeone(std::string const &target);
+		void	scornSomeone(string const &target);
 };
 
 class Pony {

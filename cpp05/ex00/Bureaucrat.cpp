@@ -6,17 +6,19 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:34:05 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/24 10:57:33 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/10/24 19:27:37 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+using std::string;
+
 // Default constructor
 Bureaucrat::Bureaucrat() : _name("uname"), _grade(MAX_GRADE) {}
 
 // Constructor
-Bureaucrat::Bureaucrat(const std::string &name, const unsigned int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const string &name, const unsigned int grade) : _name(name) {
 	if (grade < MIN_GRADE)
 		throw Bureaucrat::GradeTooHighException(); // Grade too high
 	else if (grade > MAX_GRADE)
@@ -39,7 +41,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
 }
 
 // Getters
-std::string Bureaucrat::getName() const { return (_name); }
+string Bureaucrat::getName() const { return (_name); }
 
 unsigned int Bureaucrat::getGrade() const { return (_grade); }
 
