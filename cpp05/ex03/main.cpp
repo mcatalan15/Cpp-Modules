@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/02 17:51:14 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/04 19:35:32 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 /*
 	Function to test the ShrubberyCreationForm.
@@ -122,6 +123,33 @@ void testCanonical() {
 	std::cout << pardon << std::endl;
 }
 
+/*
+	Function to test the Intern class.
+	Creates intern and creates forms of the three types. Also creates a form that does not exist.
+	This way we can see how the Intern class works.
+	Then we create a random intern and a random form to see how the Intern class works with random.
+	Lastly we delete all the forms in order to avoid memory leaks.
+*/
+void	testIntern() {
+	std::cout << "\n----- Intern Test-----\n" << std::endl;
+	Intern intern;
+
+	AForm *SCForm = intern.makeForm("ShrubberyCreationForm", "home");
+	AForm *RRForm = intern.makeForm("RobotomyRequestForm", "school");
+	AForm *PPForm = intern.makeForm("PresidentialPardonForm", "street");
+	AForm *NForm = intern.makeForm("NoForm", "street");
+
+	Intern someRandomIntern;
+	AForm *rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+	delete SCForm;
+	delete RRForm;
+	delete PPForm;
+	delete NForm;
+	delete rrf;
+}
+
 //	Main function
 int main() {
 	testSchrubbery();
@@ -129,6 +157,7 @@ int main() {
 	testPresidential();
 	testBureaucrat();
 	testCanonical();
+	testIntern();
 
 	return 0;
 }

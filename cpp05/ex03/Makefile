@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/11/04 19:05:51 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/11/04 19:24:15 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC     :=	main.cpp					\
 			ShrubberyCreationForm.cpp	\
 			RobotomyRequestForm.cpp		\
 			PresidentialPardonForm.cpp	\
+			Intern.cpp					\
 
 OBJ_DIR := obj
 
@@ -44,8 +45,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME) > /dev/null
 	@echo "$(RED)$(NAME) removed$(RST)"
-	$(RM) home_shrubbery
-	@echo "$(RED)home_shrubbery removed$(RST)"
 
 re: fclean all
 
