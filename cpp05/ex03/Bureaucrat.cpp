@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:36 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/02 17:30:43 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/05 11:52:38 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	Bureaucrat::signForm(AForm & form){
 			std::cout << GREEN << form.getName() << " is signed by " << this->_name << RESET << std::endl;  
 		}
 		catch (std::out_of_range & e) {
-			std::cout << this->_name << " could not sign " << form.getName() << \
-			" beacuse " << e.what() << std::endl;;
+			std::cout << RED << this->_name << " could not sign " << form.getName() << \
+			" beacuse " << e.what() << RESET << std::endl;;
 
 		}
 	}

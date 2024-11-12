@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 19:09:42 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/04 19:37:24 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/06 13:06:58 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ Intern &Intern::operator=(const Intern &src) {
 }
 
 // FUNCTIONS
+/*
+	This function creates a  form depending on the formName and target. Uses the clone method from the
+	form to create a new form and through a loop, it compares the formName with the names of the forms
+	that can be created. Checks if the formName is equal to the name of the form, if it is, it creates
+	the form and returns it. If it is not, it returns NULL.
+*/
 AForm *Intern::makeForm(const std::string &formName, const std::string &target) const
 {
 	ShrubberyCreationForm SCForm = ShrubberyCreationForm(target);

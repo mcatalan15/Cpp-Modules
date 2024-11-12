@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/02 17:51:14 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/05 11:54:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void testBureaucrat() {
 	RobotomyRequestForm robotomy("home");
 	try {
 		marc.signForm(shrubbery);
-		std::cout << shrubbery.getName() << " is signed by " << marc.getName() << std::endl;
+		std::cout << GREEN << shrubbery.getName() << " is signed by " << marc.getName() << RESET << std::endl;
 	}
 	catch (const std::exception &e) {
 		std::cerr << marc.getName() << " could not sign " << shrubbery.getName() << " because " << e.what() << std::endl;
