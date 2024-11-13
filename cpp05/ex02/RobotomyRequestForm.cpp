@@ -43,7 +43,10 @@ string RobotomyRequestForm::getTarget() const { return (_target); }
 // This function will execute the form and make the robotomy
 void RobotomyRequestForm::executeConcreteForm() const {
 	std::cout << GREEN << "trrrr trrrr\nbrrr brrr" << std::endl;
-	std::cout << getTarget() + " has been robotomized successfully 50% of the time." << RESET << std::endl;
+	if (rand() % 2 == 0)
+		std::cout << getTarget() + " has been robotomized successfully" << RESET << std::endl;
+	else
+		std::cout << getTarget() + " has failed to be robotomized." << RESET << std::endl;
 }
 
 // operador "<<"

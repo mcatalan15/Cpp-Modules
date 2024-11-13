@@ -14,6 +14,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
+#include <fstream>
 #include "AForm.hpp"
 
 // Minimum grade to sign the form and execute the form

@@ -14,6 +14,7 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include "AForm.hpp"
 
 // Minimum grade to sign the form and execute the form

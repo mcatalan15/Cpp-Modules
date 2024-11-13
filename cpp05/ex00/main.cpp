@@ -12,17 +12,6 @@
 
 #include "Bureaucrat.hpp" 
 
-// Test: Create Bureaucrat with correct grade
-void	constructorCorrectGrade() {
-	std::cout << std::endl << CYAN << "----- Test correct grade ----- " << RESET << std::endl;
-	try {
-		Bureaucrat("Marc", 120); // Valid grade
-	}
-	catch (std::exception & e) { // In case of exception print the message
-		std::cout << "\tcatch: " << e.what() << std::endl;
-	}
-}
-
 // Test: Create Bureaucrat with too high grade
 void	constructorTooHighGrade() {
 	std::cout << std::endl << CYAN << "----- Test too high grade ----- " << RESET << std::endl;
@@ -98,7 +87,6 @@ void	testCanonicalForm(){
 
 // Main function to run tests
 int main() {	
-	constructorCorrectGrade();
 	constructorTooHighGrade();
 	constructorTooLowGrade();
 

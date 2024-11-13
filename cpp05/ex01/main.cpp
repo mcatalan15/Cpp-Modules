@@ -74,6 +74,8 @@ void testBeSignedFunction()
 		Bureaucrat Marc("Marc", 21);
 		Form form2("form2", 56, 120);
 		Marc.signForm(form2);
+		std::cout << GREEN << form2 << RESET << std::endl;
+
 	}
 	catch (std::exception &e) {
 		std::cout << RED << "\tcatch: " << e.what() << RESET << std::endl;

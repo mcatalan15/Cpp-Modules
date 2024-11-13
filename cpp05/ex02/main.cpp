@@ -58,6 +58,8 @@ void testRobotomy() {
 	try {
 		robotomy.beSigned(pepe);
 		robotomy.execute(pepe);
+		robotomy.execute(pepe);
+
 	}
 	catch (const std::exception &e) {
 		std::cerr << "\tcatch: " << e.what() << std::endl;
@@ -71,7 +73,7 @@ void testRobotomy() {
 void testPresidential() {
 	std::cout << "\n----- Presidential Pardon Form Test-----\n" << std::endl;
 	Bureaucrat marc("Marc", 5);
-	PresidentialPardonForm pardon("home");
+	PresidentialPardonForm pardon("pedro");
 	try {
 		pardon.beSigned(marc);
 		pardon.execute(marc);
