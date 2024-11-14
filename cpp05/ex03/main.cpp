@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/04 19:35:32 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/14 10:14:44 by mcatalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void testRobotomy() {
 
 	try {
 		robotomy.beSigned(pepe);
+		robotomy.execute(pepe);
 		robotomy.execute(pepe);
 	}
 	catch (const std::exception &e) {

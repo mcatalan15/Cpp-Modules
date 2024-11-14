@@ -56,7 +56,7 @@ void	Bureaucrat::incrementGrade() {
 }
 // Increment with parameter
 void	Bureaucrat::incrementGrade(unsigned int increment) {
-	if (this->_grade < MIN_GRADE + increment)
+	if (this->_grade - increment < MIN_GRADE)
 		throw Bureaucrat::GradeTooHighException();
 	else
 		this->_grade -= increment;

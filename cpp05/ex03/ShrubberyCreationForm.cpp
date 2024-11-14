@@ -61,7 +61,7 @@ void addTreeFile(std::ofstream &outfile) {
 
 // This function will execute the form and create the trees
 void ShrubberyCreationForm::executeConcreteForm() const {
-	std::ofstream outfile(_target + "_shrubbery");
+	std::ofstream outfile((_target + "_shrubbery").c_str());
 	if (!outfile.is_open()) {
 		std::cout << "File has an error" << std::endl;
 		return;

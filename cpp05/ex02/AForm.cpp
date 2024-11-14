@@ -37,9 +37,7 @@ AForm::AForm(const string &name, const unsigned int gradeToSign,
 }
 
 // copy constructor
-AForm::AForm(const AForm &src) {
-	*this = src;
-}
+AForm::AForm(const AForm &src) { *this = src; }
 
 AForm::~AForm() {}
 
