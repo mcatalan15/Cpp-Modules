@@ -2,7 +2,12 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+# include <cstddef>
 #include "Data.hpp"
+
+#ifndef UINTPTR_MAX
+    typedef unsigned long uintptr_t; // or `unsigned int` depending on platform
+#endif
 
 class Serializer {
 

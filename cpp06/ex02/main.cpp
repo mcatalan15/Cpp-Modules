@@ -30,9 +30,9 @@ void    identify(Base* p) {
     else if (c)
         std::cout << "Class C" << std::endl;
 
-    delete a;
-    delete b;
-    delete c;
+    // delete a;
+    // delete b;
+    // delete c;
 }
 
 void    identify(Base & p) {
@@ -50,6 +50,7 @@ int main() {
     identify(base);
     identify(*base);
 
+	delete base;
     return (0);
 }
 

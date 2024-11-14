@@ -62,7 +62,7 @@ static bool isInt(const string &input) {
         i++;
     }
     try {
-        std::stoi(input); 
+        atoi(input.c_str()); 
     } catch (const std::invalid_argument& e) { return (false); }
     return (true);
 }
@@ -86,7 +86,7 @@ static bool isFloat(const string &input) {
         i++;
     }
     try {
-        std::stod(input); 
+        strtod(input); 
     } catch (const std::invalid_argument& e) { return (false); }
     return (true);
 }
@@ -110,7 +110,7 @@ static bool isDouble(const string &input) {
         i++;
     }
     try {
-        std::stod(input); 
+        strtod(input); 
     } catch (const std::invalid_argument& e) { return (false); }
     return (true);
 }

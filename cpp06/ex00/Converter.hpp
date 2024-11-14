@@ -17,6 +17,7 @@
 # include <string>
 # include <iomanip>
 # include <climits>
+# include <cstdlib>
 
 using std::string;
 
