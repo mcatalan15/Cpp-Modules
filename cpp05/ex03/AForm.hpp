@@ -81,6 +81,10 @@ class AForm {
 			public:
 				FormIsSignedException(string error_msg);
 		};
+		class FormIsNotSignedException : public std::runtime_error {
+			public:
+				FormIsNotSignedException(string error_msg);
+		};
 };
 
 #endif

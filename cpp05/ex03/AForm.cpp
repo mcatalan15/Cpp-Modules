@@ -108,8 +108,8 @@ void AForm::beSigned(Bureaucrat &bureaucrat) {
 	- If the bureaucrat has a lower grade than the grade to execute the form, it will throw a GradeTooLowException.
 */
 void AForm::execute(Bureaucrat const &executor) const {
-	if (_isSigned) {
-		throw AForm::FormIsSignedException("");
+	if (!_isSigned) {
+		throw AForm::FormIsNotSignedException("");
 	}
 	if (executor.getGrade() > getGradeToExecute())
 	{
@@ -123,3 +123,6 @@ void AForm::execute(Bureaucrat const &executor) const {
 AForm::GradeTooHighException::GradeTooHighException(string error_msg) : std::out_of_range(error_msg + "Range too high.") {};
 AForm::GradeTooLowException::GradeTooLowException(string error_msg) : std::out_of_range(error_msg + "Range too low.") {};
 AForm::FormIsSignedException::FormIsSignedException(string error_msg) : std::runtime_error(error_msg + "Form is already signed.") {};
+AForm::FormIsNotSignedException::FormIsNotSignedException(string error_msg) : std::runtime_error(error_msg + "Form not signed.") {};
+
+
