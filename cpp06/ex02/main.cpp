@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
-Base::~Base();
+Base::~Base() {} ;
 
 Base* generate() {
     
