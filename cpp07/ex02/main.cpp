@@ -1,5 +1,6 @@
 #include "Array.hpp" 
 #include "Array.tpp" 
+#include <sstream>
 
 template <class T>
 void	printArray(Array<T> arr){
@@ -45,8 +46,10 @@ void	fillArrayString() {
 	std::cout << std::endl << CYAN << "----- Fill the array with strings ----- " << RESET << std::endl;
 	try {
 		for(unsigned int i=0; i < arr.size(); i++){
-			arr[i] = "hello" + std::to_string(i);
-        }
+			std::ostringstream oss;
+			oss << i; // convert to str
+			arr[i] = "hello" + oss.str();
+        	}
 		std::cout << "Array is filled successfully!" << std:: endl;
 	} catch(std::exception e){
 		std::cout << RED << "Index is out of range" << RESET << std:: endl;
