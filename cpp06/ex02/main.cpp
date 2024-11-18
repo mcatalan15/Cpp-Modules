@@ -2,6 +2,8 @@
 #include <cstdlib>
 #include <ctime>
 
+Base::~Base();
+
 Base* generate() {
     
     srand(time(NULL));
