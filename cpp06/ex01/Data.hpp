@@ -10,4 +10,4 @@ typedef struct s_data {
     string  info;
 } Data;
 
-#endif // !DEBUG
+#endif

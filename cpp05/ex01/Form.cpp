@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:41 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/24 19:23:34 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/15 18:36:47 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,18 @@ void Form::beSigned(Bureaucrat &bureaucrat) {
 	}
 }
 
-// Exceptions
+/*
+	Exceptions:
+	This method defines exceptions as public classes inheriting exception types like `std::out_of_range`.
+	Custom error messages are passed dynamically through constructors, allowing greater flexibility.
+	Advantages: Highly customizable and reusable across different classes or contexts.
+	Drawbacks: Reduced encapsulation compared to nested classes.
+*/
 Form::GradeTooHighException::GradeTooHighException(string error_msg) : std::out_of_range(error_msg + "Grade too high.") {}
 Form::GradeTooLowException::GradeTooLowException(string error_msg) : std::out_of_range(error_msg + "Grade too low.") {}
 Form::FormIsSignedException::FormIsSignedException(string error_msg) : std::runtime_error(error_msg + "Form already signed.") {}
 
-// Overload insertion operator '<<' to output the form info
+// Overload insertion operator '<<' to output the forrm info
 std::ostream &operator<<(std::ostream &out, const Form &form) {
 	out << YELLOW << "Form " << form.getName() << " (Sign Grade: " << form.getGradeToSign() << ", Execute Grade: " << form.getGradeToExecute() << ")";
 	if (form.getIsSigned())

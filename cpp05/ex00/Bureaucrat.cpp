@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 10:34:05 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/24 19:27:37 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/15 18:55:41 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,17 @@ void	Bureaucrat::decrementGrade(unsigned int decrement) {
 		this->_grade += decrement;
 }
 
-// Exception messages
+/*
+	Exceptions:
+	This method defines exceptions as nested classes inheriting from `std::exception`.
+	Each exception overrides the `what()` method to return a fixed error message.
+	Advantages: Better encapsulation as exceptions are scoped within the class. Also more concise code.
+	Drawbacks: Less flexible since the error messages cannot be customized dynamically.
+*/
 const char	*Bureaucrat::GradeTooHighException::what () const throw () { return("Range too high"); }
 const char	*Bureaucrat::GradeTooLowException::what () const throw () { return("Range too low"); }
 
-// /overload Operator "<<" to display Bureaucrat info
+// overload Operator "<<" to display Bureaucrat info
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
 	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
 	return (out);
