@@ -45,7 +45,7 @@ AForm *Intern::makeForm(const std::string &formName, const std::string &target) 
 
 	for (int i = 0; i < 3; i++)
 	{
-		if (formName.compare(forms[i]->getName()))
+		if (!formName.compare(forms[i]->getName()))
 		{
 			std::cout << "Intern creates " << formName << std::endl;
 			return (forms[i]->clone());

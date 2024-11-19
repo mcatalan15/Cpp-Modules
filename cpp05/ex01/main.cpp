@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:56:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/10/24 19:23:53 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/19 10:12:27 by mcatalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,28 +82,10 @@ void testBeSignedFunction()
 	}
 }
 
-void testCanonicalForm()
-{
-	std::cout << std::endl << CYAN << "----- Test canonical form ----- " << RESET << std::endl;
-	try {
-		Form form1 = Form("form1", 123, 12);
-		Form form2 = Form("form2", 1, 34);
-		Form form3(form1);
-		Form form4 = form1;
-		std::cout << std::endl << MAGENTA << "Check << operator" << RESET << std::endl;
-		std::cout << form1 << std::endl;
-		std::cout << form2 << std::endl;
-	}
-	catch (std::exception &e) {
-		std::cout << RED << "\tcatch: " << e.what() << RESET << std::endl;
-	}
-}
-
 int main()
 {
 	formConstructorCorrectGrade();
 	formConstructorOutOfRange();
 	testBeSignedFunction();
-	testCanonicalForm();
 	return (0);
 }
