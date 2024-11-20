@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 12:54:18 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/19 15:32:55 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/11/20 12:48:32 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,17 @@ Converter::Converter(const Converter &src) { *this = src; }
 Converter::~Converter() {}
 
 // Assignment operator "="
-Converter &Converter::operator=(const Converter &src)
-{
-	(void)src;
-	return (*this);
-}
+Converter &Converter::operator=(const Converter &src) { (void)src; return (*this); }
 
 // Helper: Is valid double
-static bool isValidDouble(const string &input, double &value)
-{
+static bool isValidDouble(const string &input, double &value) {
 	char *end;
 	value = strtod(input.c_str(), &end);
 	return (*end == '\0' || *end == 'f'); // Ensure entire input was valid
 }
 
 // Filter type
-static int typeFilter(double value, const string &input)
-{
+static int typeFilter(double value, const string &input) {
 	if (input.length() == 3 && input[0] == '\'' && input[2] == '\'') // Single char
 		return 0;
 	if (value >= INT_MIN && value <= INT_MAX && input.find('.') == string::npos) // Integer
@@ -55,67 +49,49 @@ static int typeFilter(double value, const string &input)
 }
 
 // Print char
-static void printChar(double value, int type)
-{
+static void printChar(double value, int type) {
 	std::cout << "char: ";
-	if (type == -1 || value < CHAR_MIN || value > CHAR_MAX || !std::isprint(static_cast<char>(value)))
-	{
+	if (type == -1 || value < CHAR_MIN || value > CHAR_MAX || !std::isprint(static_cast<char>(value))) {
 		std::cout << "Impossible" << std::endl;
-	}
-	else
-	{
+	} else {
 		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
 	}
 }
 
 // Print int
-static void printInt(double value, int type)
-{
+static void printInt(double value, int type) {
 	std::cout << "int: ";
-	if (type == -1 || value < INT_MIN || value > INT_MAX)
-	{
+	if (type == -1 || value < INT_MIN || value > INT_MAX) {
 		std::cout << "Impossible" << std::endl;
-	}
-	else
-	{
+	} else {
 		std::cout << static_cast<int>(value) << std::endl;
 	}
 }
 
 // Print float
-static void printFloat(double value, int type)
-{
+static void printFloat(double value, int type) {
 	std::cout << "float: ";
-	if (type == -1 || value < -FLT_MAX || value > FLT_MAX)
-	{
+	if (type == -1 || value < -FLT_MAX || value > FLT_MAX) {
 		std::cout << "Impossible" << std::endl;
-	}
-	else
-	{
-		std::cout << static_cast<float>(value) << "f" << std::endl;
+	} else {
+		std::cout << std::fixed << std::setprecision(1) << std::showpoint << static_cast<float>(value) << "f" << std::endl;
 	}
 }
 
 // Print double
-static void printDouble(double value, int type)
-{
+static void printDouble(double value, int type) {
 	std::cout << "double: ";
-	if (type == -1)
-	{
+	if (type == -1) {
 		std::cout << "Impossible" << std::endl;
-	}
-	else
-	{
-		std::cout << value << std::endl;
+	} else {
+		std::cout << std::fixed << std::setprecision(1) << std::showpoint << value << std::endl;
 	}
 }
 
 // Main convert function
-void Converter::convert(const string &input)
-{
+void Converter::convert(const string &input) {
 	double value;
-	if (!isValidDouble(input, value))
-	{
+	if (!isValidDouble(input, value)) {
 		std::cout << "Invalid input" << std::endl;
 		return;
 	}
