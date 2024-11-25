@@ -32,6 +32,10 @@ Converter &Converter::operator=(const Converter &src) { (void)src; return (*this
 
 // Helper: Is valid double
 static bool isValidDouble(const string &input, double &value) {
+    if (input.length() == 3 && input[0] == '\'' && input[2] == '\'') {
+        value = static_cast<double>(input[1]);
+        return true;
+    }
 	char *end;
 	value = strtod(input.c_str(), &end);
 	return (*end == '\0' || *end == 'f'); // Ensure entire input was valid
@@ -88,8 +92,37 @@ static void printDouble(double value, int type) {
 	}
 }
 
+// Helper function to check and adapt the behavior accordingly
+static bool isPseudoLiteral(const std::string &input) {
+    return input == "nan" || input == "nanf" || 
+           input == "+inf" || input == "-inf" ||
+           input == "+inff" || input == "-inff";
+}
+
+// Specifically handles the respective cases
+static void handlePseudoLiteral(const std::string &input) {
+    std::cout << "char: Impossible" << std::endl;
+    std::cout << "int: Impossible" << std::endl;
+
+    if (input == "nan" || input == "nanf") {
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+    } else if (input == "+inf" || input == "+inff") {
+        std::cout << "float: +inff" << std::endl;
+        std::cout << "double: +inf" << std::endl;
+    } else if (input == "-inf" || input == "-inff") {
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+    }
+}
+
+
 // Main convert function
 void Converter::convert(const string &input) {
+    if (isPseudoLiteral(input)) {
+        handlePseudoLiteral(input);
+        return ;
+    }
 	double value;
 	if (!isValidDouble(input, value)) {
 		std::cout << "Invalid input" << std::endl;
