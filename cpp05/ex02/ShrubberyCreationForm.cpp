@@ -80,3 +80,4 @@ std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &SCform)
 		out << " | form is not signed." << std::endl;
 	return (out);
 }
+

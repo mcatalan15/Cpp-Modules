@@ -56,3 +56,4 @@ std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &SCform
 		out << " | form is not signed." << RESET << std::endl;
 	return (out);
 }
+
