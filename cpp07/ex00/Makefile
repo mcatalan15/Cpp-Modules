@@ -26,8 +26,7 @@ OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 CPP     := c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP
-
+CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -pedantic
 RM      := @rm -rf
 
 all:    $(NAME)
