@@ -54,12 +54,14 @@ static int typeFilter(double value, const string &input) {
 
 // Print char
 static void printChar(double value, int type) {
-	std::cout << "char: ";
-	if (type == -1 || value < CHAR_MIN || value > CHAR_MAX || !std::isprint(static_cast<char>(value))) {
-		std::cout << "Impossible" << std::endl;
-	} else {
-		std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
-	}
+    std::cout << "char: ";
+    if (type == -1 || value < CHAR_MIN || value > CHAR_MAX) {
+        std::cout << "Impossible" << std::endl;
+    } else if (!std::isprint(static_cast<char>(value))) {
+        std::cout << "Non displayable" << std::endl;
+    } else {
+        std::cout << "'" << static_cast<char>(value) << "'" << std::endl;
+    }
 }
 
 // Print int
