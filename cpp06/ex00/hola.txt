@@ -1,0 +1,201 @@
+[0;31mObjects removed[0m
+[0;31mConversion removed[0m
+c++ -std=c++98 -W -Wall -Wextra -Werror -MMD -MP -pedantic -c main.cpp -o obj/main.o
+c++ -std=c++98 -W -Wall -Wextra -Werror -MMD -MP -pedantic -c Converter.cpp -o obj/Converter.o
+c++ -std=c++98 -W -Wall -Wextra -Werror -MMD -MP -pedantic obj/main.o obj/Converter.o -o Conversion
+[0;32mCompiled[0m
+Running tests...
+Test 1: Input = 'A'
+✅ Test 1 passed.
+
+Test 2: Input = 42
+✅ Test 2 passed.
+
+Test 3: Input = 42.0f
+✅ Test 3 passed.
+
+Test 4: Input = 42.0
+✅ Test 4 passed.
+
+Test 5: Input = nan
+✅ Test 5 passed.
+
+Test 6: Input = +inff
+✅ Test 6 passed.
+
+Test 7: Input = -inf
+✅ Test 7 passed.
+
+Test 8: Input = ' '
+✅ Test 8 passed.
+
+Test 9: Input = 127
+✅ Test 9 passed.
+
+Test 10: Input = 2147483647
+✅ Test 10 passed.
+
+Test 11: Input = -2147483648
+✅ Test 11 passed.
+
+Test 12: Input = 3.40282e+38
+✅ Test 12 passed.
+
+Test 13: Input = abc
+✅ Test 13 passed.
+
+Test 14: Input = 12a34
+✅ Test 14 passed.
+
+Test 15: Input = 'AB'
+✅ Test 15 passed.
+
+Test 16: Input = 42.42.42
+✅ Test 16 passed.
+
+Test 17: Input = 0
+❌ Test 17 failed.
+Expected:
+char: '0'
+int: 0
+float: 0.0f
+double: 0.0
+Got:
+char: Non displayable
+int: 0
+float: 0.0f
+double: 0.0
+
+Test 18: Input = -0
+❌ Test 18 failed.
+Expected:
+char: '0'
+int: 0
+float: 0.0f
+double: 0.0
+Got:
+char: Non displayable
+int: 0
+float: -0.0f
+double: -0.0
+
+Test 19: Input = 0.0
+❌ Test 19 failed.
+Expected:
+char: '0'
+int: 0
+float: 0.0f
+double: 0.0
+Got:
+char: Non displayable
+int: 0
+float: 0.0f
+double: 0.0
+
+Test 20: Input = -0.0
+❌ Test 20 failed.
+Expected:
+char: '0'
+int: 0
+float: -0.0f
+double: -0.0
+Got:
+char: Non displayable
+int: 0
+float: -0.0f
+double: -0.0
+
+Test 21: Input = 1e10
+❌ Test 21 failed.
+Expected:
+char: Impossible
+int: 10000000000
+float: 1.0e+10f
+double: 1.0e+10
+Got:
+char: Impossible
+int: Impossible
+float: 10000000000.0f
+double: 10000000000.0
+
+Test 22: Input = -1e-10
+❌ Test 22 failed.
+Expected:
+char: Impossible
+int: Impossible
+float: -1.0e-10f
+double: -1.0e-10
+Got:
+char: Non displayable
+int: 0
+float: -0.0f
+double: -0.0
+
+Test 23: Input = 3.4028235e+38f
+❌ Test 23 failed.
+Expected:
+Invalid input
+Got:
+char: Impossible
+int: Impossible
+float: Impossible
+double: 340282349999999991754788743781432688640.0
+
+Test 24: Input = 1.7976931348623157e+308
+✅ Test 24 passed.
+
+Test 25: Input = 1.8e+308
+❌ Test 25 failed.
+Expected:
+Invalid input
+Got:
+char: Impossible
+int: Impossible
+float: Impossible
+double: inf
+
+Test 26: Input = -nan
+❌ Test 26 failed.
+Expected:
+char: Impossible
+int: Impossible
+float: nanf
+double: -nan
+Got:
+char: Non displayable
+int: -2147483648
+float: -nanf
+double: -nan
+
+Test 27: Input = '\n'
+✅ Test 27 passed.
+
+Test 28: Input = '\xff'
+✅ Test 28 passed.
+
+Test 29: Input = 2.2250738585072014e-308
+❌ Test 29 failed.
+Expected:
+char: Impossible
+int: Impossible
+float: 2.2250738585072014e-308f
+double: 2.2250738585072014e-308
+Got:
+char: Non displayable
+int: 0
+float: 0.0f
+double: 0.0
+
+Test 30: Input = inf
+✅ Test 30 passed.
+
+Test 31: Input = +inff
+❌ Test 31 failed.
+Expected:
+
+Got:
+char: Impossible
+int: Impossible
+float: +inff
+double: +inf
+

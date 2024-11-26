@@ -25,6 +25,23 @@ declare -a inputs=(
     "12a34"       # Invalid
     "'AB'"        # Invalid char
     "42.42.42"    # Invalid
+
+    # New test cases
+    "0"                  # Int: Zero
+    "-0"                 # Int: Negative zero
+    "0.0"                # Double: Zero
+    "-0.0"               # Double: Negative zero
+    "1e10"               # Double: Scientific notation
+    "-1e-10"             # Double: Small negative scientific notation
+    "3.4028235e+38f"     # Float: Slightly larger than max float
+    "1.7976931348623157e+308" # Double: Largest representable double
+    "1.8e+308"           # Double: Overflow case
+    "-nan"               # Double: Negative NaN
+    "'\\n'"              # Char: Newline (invalid but parsable input)
+    "'\\xff'"            # Char: Non-ASCII (invalid input)
+    "2.2250738585072014e-308" # Double: Smallest positive normal double
+    "inf"                # Double: Positive infinity (without '+')
+    "+inff"              # Float: Redundant test
 )
 
 # Expected outputs for each test case (optional)
@@ -34,7 +51,7 @@ declare -a expected_outputs=(
     "char: '*'\nint: 42\nfloat: 42.0f\ndouble: 42.0"
     "char: '*'\nint: 42\nfloat: 42.0f\ndouble: 42.0"
     "char: Impossible\nint: Impossible\nfloat: nanf\ndouble: nan"
-    "char: Impossible\nint: Impossible\nfloat: inff\ndouble: inf"
+    "char: Impossible\nint: Impossible\nfloat: +inff\ndouble: +inf"
     "char: Impossible\nint: Impossible\nfloat: -inff\ndouble: -inf"
     "char: ' '\nint: 32\nfloat: 32.0f\ndouble: 32.0"
     "char: Non displayable\nint: 127\nfloat: 127.0f\ndouble: 127.0"
@@ -45,6 +62,22 @@ declare -a expected_outputs=(
     "Invalid input"
     "Invalid input"
     "Invalid input"
+
+    # Expected outputs for new test cases
+    "char: '0'\nint: 0\nfloat: 0.0f\ndouble: 0.0"
+    "char: '0'\nint: 0\nfloat: 0.0f\ndouble: 0.0"
+    "char: '0'\nint: 0\nfloat: 0.0f\ndouble: 0.0"
+    "char: '0'\nint: 0\nfloat: -0.0f\ndouble: -0.0"
+    "char: Impossible\nint: 10000000000\nfloat: 1.0e+10f\ndouble: 1.0e+10"
+    "char: Impossible\nint: Impossible\nfloat: -1.0e-10f\ndouble: -1.0e-10"
+    "Invalid input" # Overflow float
+    "char: Impossible\nint: Impossible\nfloat: Impossible\ndouble: 1.7976931348623157e+308"
+    "Invalid input" # Overflow double
+    "char: Impossible\nint: Impossible\nfloat: nanf\ndouble: -nan"
+    "Invalid input"
+    "Invalid input"
+    "char: Impossible\nint: Impossible\nfloat: 2.2250738585072014e-308f\ndouble: 2.2250738585072014e-308"
+    "char: Impossible\nint: Impossible\nfloat: +inff\ndouble: +inf"
 )
 
 # Helper function to compare outputs
