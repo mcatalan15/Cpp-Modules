@@ -96,9 +96,10 @@ static void printDouble(double value, int type) {
 
 // Helper function to check and adapt the behavior accordingly
 static bool isPseudoLiteral(const std::string &input) {
-    return input == "nan" || input == "nanf" || 
-           input == "+inf" || input == "-inf" ||
-           input == "+inff" || input == "-inff";
+    return  (input.size() == 3 && input == "nan") ? true :
+            (input.size() == 4 && (input == "nanf" || input == "+inf" || input == "-inf")) ? true :
+            (input.size() == 5 && (input == "+inff" || input == "-inff")) ? true :
+            false ;
 }
 
 // Specifically handles the respective cases
