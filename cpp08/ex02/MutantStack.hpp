@@ -1,14 +1,15 @@
 #ifndef MUTANTSTACK_HPP
-#define MUTANSTACK_HPP
+#define MUTANTSTACK_HPP
 
- include <iostream>
+#include <iostream>
 #include <stack>
+#include <iterator>
 
 #define RESET "\033[0m"
 #define RED "\033[31m"
 
-template<typename T>
-class MutanStack : public std::stack<T> {
+template <typename T>
+class MutantStack : public std::stack<T> {
     public:
         MutantStack();
         MutantStack(const MutantStack &src);

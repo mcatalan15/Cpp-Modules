@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/11/04 19:24:15 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/12/02 11:15:46 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ RST = \033[0m
 NAME    :=	realType
 
 SRC     :=	main.cpp					\
-			Span.cpp					\
 
 OBJ_DIR := obj
 
