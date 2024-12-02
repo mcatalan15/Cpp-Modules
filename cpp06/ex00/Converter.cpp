@@ -35,7 +35,8 @@ static bool isValidDouble(const string &input, double &value) {
     if (input.length() == 3 && input[0] == '\'' && input[2] == '\'') {
         value = static_cast<double>(input[1]);
         return true;
-    }
+    } 
+	
 	char *end;
 	value = strtod(input.c_str(), &end);
 	return (*end == '\0' || *end == 'f'); // Ensure entire input was valid
@@ -102,13 +103,33 @@ static bool isPseudoLiteral(const std::string &input) {
             false ;
 }
 
-// Specifically handles the respective cases
+// // Specifically handles the respective cases
+// static void handlePseudoLiteral(const std::string &input) {
+//     // Print common impossible cases
+//     std::cout << "char: Impossible" << std::endl;
+//     std::cout << "int: Impossible" << std::endl;
+
+//     // Check and handle the pseudo-literals
+//     if (input == "nan" || input == "nanf") {
+//         std::cout << "float: nanf" << std::endl;
+//         std::cout << "double: nan" << std::endl;
+
+//     } else if (input == "+inf" || input == "+inff") {
+//         std::cout << "float: +inff" << std::endl;
+//         std::cout << "double: +inf" << std::endl;
+//     } else if (input == "-inf" || input == "-inff") {
+//         std::cout << "float: -inff" << std::endl;
+//         std::cout << "double: -inf" << std::endl;
+//     } else {
+//         // Handle unrecognized input
+//         std::cout << "Unrecognized pseudo-literal: " << input << std::endl;
+//     }
+// }
+
 static void handlePseudoLiteral(const std::string &input) {
-    // Print common impossible cases
     std::cout << "char: Impossible" << std::endl;
     std::cout << "int: Impossible" << std::endl;
 
-    // Check and handle the pseudo-literals
     if (input == "nan" || input == "nanf") {
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
@@ -118,27 +139,8 @@ static void handlePseudoLiteral(const std::string &input) {
     } else if (input == "-inf" || input == "-inff") {
         std::cout << "float: -inff" << std::endl;
         std::cout << "double: -inf" << std::endl;
-    } else {
-        // Handle unrecognized input
-        std::cout << "Unrecognized pseudo-literal: " << input << std::endl;
     }
 }
-
-// static void handlePseudoLiteral(const std::string &input) {
-//     std::cout << "char: Impossible" << std::endl;
-//     std::cout << "int: Impossible" << std::endl;
-
-//     if (input == "nan" || input == "nanf") {
-//         std::cout << "float: nanf" << std::endl;
-//         std::cout << "double: nan" << std::endl;
-//     } else if (input == "+inf" || input == "+inff") {
-//         std::cout << "float: +inff" << std::endl;
-//         std::cout << "double: +inf" << std::endl;
-//     } else if (input == "-inf" || input == "-inff") {
-//         std::cout << "float: -inff" << std::endl;
-//         std::cout << "double: -inf" << std::endl;
-//     }
-// }
 
 
 // Main convert function
