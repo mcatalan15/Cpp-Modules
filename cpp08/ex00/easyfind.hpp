@@ -2,6 +2,7 @@
 # define EASYFIND_HPP
 
 # include <iostream>
+# include <algorithm>
 
 # define RESET "\033[0m"
 # define RED "\033[31m"

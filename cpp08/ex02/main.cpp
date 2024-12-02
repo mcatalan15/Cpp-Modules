@@ -1,5 +1,6 @@
 #include "MutantStack.hpp"
 #include <list>
+#include "MutantStack.tpp"
 
 void    mandatoryTest() {
     std::cout << std::endl << "----- mutant stack class -----" << std::endl;
