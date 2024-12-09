@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:12:39 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/09 11:14:19 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/09 12:41:12 by mcatalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,55 @@ ScalarConverter::~ScalarConverter(void) {}
 
 // Functions
 int ScalarConverter::detectType(std::string str) {
-	std::string	strCopy = str;
+	// std::string	strCopy = str;
 	
-	if ((str[0] == '+' || str[0] == '-') && str[1])
-		strCopy = str.substr(1, str.length() - 1);
-	if (strCopy.substr(0,3) == "inf" || strCopy.substr(0,3) == "nan" || isdigit(strCopy.at(0))) {
-		if (strCopy.at(strCopy.length() - 1) == 'f' && strCopy != "inf" && strCopy != "nan")
-			return IS_FLOAT;
-		if (strCopy.find('.') != std::string::npos || strCopy == "inf" || strCopy == "nan")
-			return IS_DOUBLE;
-		return IS_INT;
-	}
-	if (isprint(str[0]) && str.length() == 1)
-		return IS_CHAR;
-	return IS_ERROR;	
+	// if ((str[0] == '+' || str[0] == '-') && str[1])
+	// 	strCopy = str.substr(1, str.length() - 1);
+
+	// // Check for special floating-point literals
+    // if (strCopy == "inf" || strCopy == "nan")
+    //     return IS_DOUBLE;
+    // if (strCopy == "inff" || strCopy == "nanf")
+    //     return IS_FLOAT;
+
+	// if (strCopy.substr(0,3) == "inf" || strCopy.substr(0,3) == "nan" || isdigit(strCopy.at(0))) {
+	// 	if (strCopy.at(strCopy.length()- 1) == 'f' && strCopy.at(strCopy.length()) < 5 && strCopy != "inf" && strCopy != "nan")
+	// 		return IS_FLOAT;
+	// 	if (strCopy.find('.') != std::string::npos || strCopy == "inf" || strCopy == "nan")
+	// 		return IS_DOUBLE;
+	// 	return IS_INT;
+	// }
+	// if (isprint(str[0]) && str.length() == 1)
+	// 	return IS_CHAR;
+	// return IS_ERROR;
+	   std::string strCopy = str;
+
+    // Remove leading '+' or '-' if present
+    if ((str[0] == '+' || str[0] == '-') && str.length() > 1)
+        strCopy = str.substr(1);
+
+    // Check for special floating-point literals
+    if (strCopy == "inf" || strCopy == "nan")
+        return IS_DOUBLE;
+    if (strCopy == "inff" || strCopy == "nanf")
+        return IS_FLOAT;
+
+    // Check if it is a valid digit or decimal point
+    if (isdigit(strCopy[0]) || strCopy[0] == '.') {
+        if (strCopy.find('.') != std::string::npos) {
+            // Check for float literals (ends with 'f')
+            if (strCopy.length() > 1 && strCopy[strCopy.length() - 1] == 'f')
+                return IS_FLOAT;
+            return IS_DOUBLE;
+        }
+        return IS_INT;
+    }
+
+    // Check if it's a single printable character
+    if (isprint(str[0]) && str.length() == 1)
+        return IS_CHAR;
+
+    return IS_ERROR;	
 }
 
 void	ScalarConverter::printCastFromChar(std::string str) {
@@ -81,7 +116,7 @@ void	ScalarConverter::printCastFromFloat(std::string str) {
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: " << "'" << static_cast<char>(value) << "'" << std::endl;
-	if (str.find("inf") != std::string::npos || str.find("nan") != std::string::npos || value < INT_MIN || value > INT_MAX)
+	if (str.find("inf") != std::string::npos || str.find("nan") != std::string::npos || value < static_cast<float>(INT_MIN) || value > static_cast<float>(INT_MAX)) 
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " <<  static_cast<int>(value) << std::endl;
