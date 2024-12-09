@@ -5,22 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 12:54:16 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/20 19:36:46 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/12/09 11:16:20 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/12/09 11:16:38 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-/*
-	This main function check the num of arguments and call the convert function
-*/
-
-int main(int argc, char **argv) {
-	if (argc != 2) {
-		std::cerr << "Error: invalid number of arguments" << std::endl;
-		return 1;
+int main(int argc, char **argv)
+{
+	if (argc == 2) {
+		try {
+			ScalarConverter::convert(argv[1]);
+/* 			ScalarConverter::convert("c");
+			ScalarConverter::convert("a");
+			ScalarConverter::convert("0");
+			ScalarConverter::convert("-42");
+			ScalarConverter::convert("42");
+			ScalarConverter::convert("0.0f");
+			ScalarConverter::convert("-4.2f");
+			ScalarConverter::convert("4.2f");
+			ScalarConverter::convert("-inff");
+			ScalarConverter::convert("+inff");
+			ScalarConverter::convert("+nanf");
+			ScalarConverter::convert("0.0");
+			ScalarConverter::convert("-4.2");
+			ScalarConverter::convert("4.2");
+			ScalarConverter::convert("-inf");
+			ScalarConverter::convert("+inff");
+			ScalarConverter::convert("nan");
+ 			ScalarConverter::convert("2147483647");
+			std::cout << std::endl;
+			ScalarConverter::convert("2147483648");
+			std::cout << std::endl;
+			ScalarConverter::convert("-2147483648");
+			std::cout << std::endl;
+			ScalarConverter::convert("-2147483649");
+			std::cout << std::endl;	*/		
+		}
+		catch(const std::exception& e) {
+			std::cerr << e.what() << std::endl;
+		}
 	}
-	Converter::convert(argv[1]);
-	return 0;
+	else
+		std::cerr << "Error - Invalid number of arguments." << std::endl;
+	return (0);
 }

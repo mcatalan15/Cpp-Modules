@@ -5,32 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 12:49:58 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/11 20:06:28 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2024/12/09 11:16:02 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/12/09 11:16:05 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONVERTER_HPP
-# define CONVERTER_HPP
+#ifndef CONVERTER_H
+# define CONVERTER_H
 
 # include <iostream>
-# include <string>
+# include <cstdlib>
 # include <iomanip>
 # include <climits>
-# include <cstdlib>
+# include <limits>
 
-using std::string;
+# define	IS_CHAR		0;
+# define	IS_INT		1;
+# define	IS_FLOAT	2;
+# define	IS_DOUBLE	3;
+# define	IS_ERROR	4;
 
-class Converter {
-	
+class  ScalarConverter
+{
 	private:
-		Converter();
-		Converter(Converter const &src);
-		~Converter();
-		Converter &operator=(Converter const &src);
-	
+		ScalarConverter(void);
+		ScalarConverter(ScalarConverter const & source);
+		ScalarConverter & operator=(ScalarConverter const & source);
+		~ScalarConverter(void);
+		
+		static int	detectType(std::string str);
+		static void	printCastFromChar(std::string str);
+		static void	printCastFromInt(std::string str);
+		static void	printCastFromFloat(std::string str);
+		static void	printCastFromDouble(std::string str);
+		
 	public:
-		static void convert(const string &input);
+		static void convert(std::string const str);
+		class InvalidFormat: public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif
