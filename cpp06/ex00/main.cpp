@@ -6,14 +6,13 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:16:20 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/09 11:16:38 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/09 11:18:22 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	if (argc == 2) {
 		try {
 			ScalarConverter::convert(argv[1]);
