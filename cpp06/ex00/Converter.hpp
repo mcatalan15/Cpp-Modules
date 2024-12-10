@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:16:02 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/09 11:16:05 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/09 11:25:47 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,36 @@
 # include <climits>
 # include <limits>
 
+/*
+	Define the int values for each type.
+*/
+
 # define	IS_CHAR		0;
 # define	IS_INT		1;
 # define	IS_FLOAT	2;
 # define	IS_DOUBLE	3;
 # define	IS_ERROR	4;
+
+/*
+	Define Scalar converter class.
+	private:
+		- Constructor
+		- Copy Constructor
+		- Operator overload
+		- Destructor
+	public:
+		- detectType
+		- printCastFromChar
+		- printCastFromInt
+		- printCastFromFloat
+		- printCastFromDouble
+		- convert
+		- InvalidFormat
+
+	why the privates? In this specific task, the class is not meant to be instantiated.
+	The only public method is the static convert method that we we'll call in the main
+	also the exception class is public because we need to catch it in the main.
+*/
 
 class  ScalarConverter
 {

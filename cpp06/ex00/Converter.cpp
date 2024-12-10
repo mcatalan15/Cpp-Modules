@@ -6,27 +6,38 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:12:39 by mcatalan@st       #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2024/12/09 12:41:12 by mcatalan         ###   ########.fr       */
+=======
+/*   Updated: 2024/12/10 11:58:25 by mcatalan@st      ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 
-ScalarConverter::ScalarConverter(void)
-{
-}
+// Default constructor
+ScalarConverter::ScalarConverter(void) {}
 
+// Copy constructor
 ScalarConverter::ScalarConverter(ScalarConverter const & source) { *this = source; }
 
+// Operator overload
 ScalarConverter & ScalarConverter::operator=(ScalarConverter const & source) {
 	if (this != &source)
 		return (*this);
 	return (*this);    
 }
 
+// Destructor
 ScalarConverter::~ScalarConverter(void) {}
 
 // Functions
+/*
+	This function detects the type of the input string. Checks if there is any
+	'+' or '-' sign at the beginning of the string and removes it. Then checks
+	if the input is a submod
+*/
 int ScalarConverter::detectType(std::string str) {
 	// std::string	strCopy = str;
 	
@@ -144,6 +155,11 @@ void	ScalarConverter::printCastFromDouble(std::string str) {
 	std::cout << "double: " << value << std::endl;
 }
 
+/*
+	This function is a switch case that using detectType function selects the correct
+	function to print the cast from the input string. If the input string is not a
+	valid type, it throws an exception.
+*/
 void ScalarConverter::convert(std::string const str) {
 
 	switch (detectType(str)) {
@@ -164,4 +180,7 @@ void ScalarConverter::convert(std::string const str) {
 	}
 }
 
+/*
+	Exception class print the error message when the input string is not a valid type.
+*/
 const char* ScalarConverter::InvalidFormat::what() const throw() { return ("Error - Invalid input format."); }
