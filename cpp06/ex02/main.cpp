@@ -2,6 +2,10 @@
 #include <cstdlib>
 #include <ctime>
 
+/*
+	This function generates a randum number between 1 and 3.
+	Then it creates a new instance of A, B or C depending on the random number.
+*/
 Base* generate() {
     
     srand(time(NULL));
@@ -17,6 +21,10 @@ Base* generate() {
     return (base);
 }
 
+/*
+	This function identifies the class from a pointer.
+	It uses dynamic_cast to check if the pointer is an instance of A, B or C.
+*/
 void    identify(Base* p) {
     std::cout << "Identify class from pointer" << std::endl;
     A* a = dynamic_cast<A*>(p);
@@ -35,6 +43,10 @@ void    identify(Base* p) {
     // delete c;
 }
 
+/*
+	This function identifies the class from a reference.
+	It uses dynamic_cast to check if the reference is an instance of A, B or C.
+*/
 void    identify(Base & p) {
     std::cout << "Identify class from reference" << std::endl;
     if (dynamic_cast<A*>(&p))
@@ -45,6 +57,9 @@ void    identify(Base & p) {
         std::cout << "Class C" << std::endl;
 }
 
+/*
+	Main function that generates a random class and identifies it.
+*/
 int main() {
     Base* base = generate();
     identify(base);

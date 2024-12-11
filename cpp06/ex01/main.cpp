@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:36:55 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/11/12 10:38:53 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/11 12:46:03 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "Data.hpp"
 
 /*
-    
-
+	This main function creates a Data pointer and initializes it with an integer and a string.
+	Then it serializes the pointer and prints the data. After that, it deserializes the pointer
+	and prints the data again.
 */
 int main() {
     Data* data = new Data;
