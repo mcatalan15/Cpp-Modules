@@ -5,12 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 11:12:39 by mcatalan@st       #+#    #+#             */
-<<<<<<< Updated upstream
-/*   Updated: 2024/12/09 12:41:12 by mcatalan         ###   ########.fr       */
-=======
-/*   Updated: 2024/12/10 11:58:25 by mcatalan@st      ###   ########.fr       */
->>>>>>> Stashed changes
+/*   Created: 2024/12/10 14:53:47 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/12/10 14:57:39 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +35,7 @@ ScalarConverter::~ScalarConverter(void) {}
 	if the input is a submod
 */
 int ScalarConverter::detectType(std::string str) {
-	// std::string	strCopy = str;
-	
-	// if ((str[0] == '+' || str[0] == '-') && str[1])
-	// 	strCopy = str.substr(1, str.length() - 1);
-
-	// // Check for special floating-point literals
-    // if (strCopy == "inf" || strCopy == "nan")
-    //     return IS_DOUBLE;
-    // if (strCopy == "inff" || strCopy == "nanf")
-    //     return IS_FLOAT;
-
-	// if (strCopy.substr(0,3) == "inf" || strCopy.substr(0,3) == "nan" || isdigit(strCopy.at(0))) {
-	// 	if (strCopy.at(strCopy.length()- 1) == 'f' && strCopy.at(strCopy.length()) < 5 && strCopy != "inf" && strCopy != "nan")
-	// 		return IS_FLOAT;
-	// 	if (strCopy.find('.') != std::string::npos || strCopy == "inf" || strCopy == "nan")
-	// 		return IS_DOUBLE;
-	// 	return IS_INT;
-	// }
-	// if (isprint(str[0]) && str.length() == 1)
-	// 	return IS_CHAR;
-	// return IS_ERROR;
-	   std::string strCopy = str;
+	std::string strCopy = str;
 
     // Remove leading '+' or '-' if present
     if ((str[0] == '+' || str[0] == '-') && str.length() > 1)
@@ -90,6 +65,12 @@ int ScalarConverter::detectType(std::string str) {
     return IS_ERROR;	
 }
 
+/*
+	This function print the cast from a char type input.
+	We use fixed and setprecision to print the float with one decimal
+	and the char is printed between single quotes.
+*/
+
 void	ScalarConverter::printCastFromChar(std::string str) {
 	std::cout << "char: " << "'" << str[0] << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
@@ -98,6 +79,12 @@ void	ScalarConverter::printCastFromChar(std::string str) {
 	std::cout << "double: " << static_cast<double>(str[0]) << std::endl;
 }
 
+/*
+	This function print the cast from an int type input.
+	We check if the value is between 32 and 127 to print printable char.
+	We check if the value is between 0 and UCHAR_MAX to print non displayable
+	char (except for the chars in 32 to 127).
+*/
 void	ScalarConverter::printCastFromInt(std::string str) {
 	long	value;
 
@@ -117,6 +104,12 @@ void	ScalarConverter::printCastFromInt(std::string str) {
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
+/*
+	This function print the cast from a float type input.
+	We check if the value is inf or nan, if it is, we print impossible for char and int.
+	We check if the value is between 0 and UCHAR_MAX to print non displayable
+	char (except for the chars in 32 to 127).
+*/
 void	ScalarConverter::printCastFromFloat(std::string str) {
 	float	value;
 
@@ -136,6 +129,10 @@ void	ScalarConverter::printCastFromFloat(std::string str) {
 	std::cout << "double: " << static_cast<double>(std::atof(str.c_str())) << std::endl;
 }
 
+/*
+	This function print the cast from a double type input.
+	We check if there is any inf or nan, if it is, we print impossible for char and int.
+*/
 void	ScalarConverter::printCastFromDouble(std::string str) {
 	double	value;
 

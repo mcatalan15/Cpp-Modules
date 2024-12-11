@@ -8,6 +8,5 @@ int main() {
 
     string str[4]= {"hi", "hola", "hallo", "hey"};
     ::iter(str, 4, &print);
-    return (0);
 }
 
