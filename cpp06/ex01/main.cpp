@@ -17,6 +17,10 @@
 	This main function creates a Data pointer and initializes it with an integer and a string.
 	Then it serializes the pointer and prints the data. After that, it deserializes the pointer
 	and prints the data again.
+
+	Serialization:
+	Process of converting an object, data structure or memory state into
+	a format that can be stored, trasnferred or reconstructed later.
 */
 int main() {
     Data* data = new Data;
