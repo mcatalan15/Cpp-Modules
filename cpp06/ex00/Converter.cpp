@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:53:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/11 19:38:34 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/13 12:48:11 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,52 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & source) {
 ScalarConverter::~ScalarConverter(void) {}
 
 // Functions
+
+/*
+	This functionc receives a string and checks if it has more than one dot.
+*/
+bool hasMultipleDots(const std::string &str)
+{
+	int dotCount = 0; // Contador de puntos
+
+	for (size_t i = 0; i < str.length(); ++i) {
+		if (str[i] == '.') {
+			++dotCount;
+			if (dotCount > 1) // Más de un punto encontrado
+				return true;
+		}
+	}
+	return false; // Solo un punto o ninguno
+}
+
+/*
+	This function checks if the string contains invalid characters
+	for a valid numeric input.
+*/
+bool hasInvalidCharacters(const std::string &str) {
+	size_t i = 0;
+
+	// Check for an optional sign at the beginning
+	if (str[i] == '-' || str[i] == '+')
+		++i;
+
+	bool dotFound = false;
+	bool fFound = false;
+
+	// Iterate through the rest of the string
+	for (; i < str.length(); ++i){
+		if (isdigit(str[i]))
+			continue;
+		else if (str[i] == '.' && !dotFound)
+			dotFound = true; // Allow only one dot
+		else if (str[i] == 'f' && i == str.length() - 1 && !fFound)
+			fFound = true; // Allow 'f' only at the end
+		else
+			return true; // Invalid character found
+	}
+	return false; // All characters are valid
+}
+
 /*
 	This function detects the type of the input string. Checks if there is any
 	'+' or '-' sign at the beginning of the string and removes it. Then checks
@@ -38,12 +84,18 @@ int ScalarConverter::detectType(std::string str)
 {
 	std::string strCopy = str;
 
+	if (hasMultipleDots(str))
+		return IS_ERROR;
+
 	// Check for special floating-point literals
 	if (str == "+inf" || str == "-inf" || str == "nan")
 		return IS_DOUBLE;
 
 	if (str == "nanf" || str == "+inff" || str == "-inff")
 		return IS_FLOAT;
+
+	if (strCopy[0] == '-' || strCopy[0] == '+')
+		strCopy = strCopy.substr(1); // Remove the sign for further checks
 
 	// Check if it is a valid digit or decimal point
 	if (isdigit(strCopy[0]) || strCopy[0] == '.')
@@ -172,6 +224,8 @@ void ScalarConverter::printCastFromDouble(std::string str)
 */
 void ScalarConverter::convert(std::string const str) {
 
+	if (hasInvalidCharacters(str))
+		throw ScalarConverter::InvalidFormat();
 	switch (detectType(str)) {
 		case 0:
 			printCastFromChar(str);
