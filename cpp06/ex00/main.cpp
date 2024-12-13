@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 11:16:20 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/13 12:35:53 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/13 17:55:52 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 /*
 	main function with argv argument and tests comented. If argv num not 2 print
 	error message. And in case argv[1] is wrong, print the exception message.
-*/
-/*
-	-revisar float cuando es mas o menos que intmax or intmin
-	-gestionar detras del num
 */
 int main(int argc, char **argv) {
 	if (argc == 2) {

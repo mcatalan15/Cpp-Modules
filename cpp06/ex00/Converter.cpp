@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 14:53:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/13 12:48:11 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/13 18:01:54 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,10 @@ bool hasMultipleDots(const std::string &str)
 	for a valid numeric input.
 */
 bool hasInvalidCharacters(const std::string &str) {
+
+	if (str.length() == 1 && !isdigit(str[0]) && isprint(str[0]))
+		return false;
+	
 	size_t i = 0;
 
 	// Check for an optional sign at the beginning
@@ -83,6 +87,10 @@ bool hasInvalidCharacters(const std::string &str) {
 int ScalarConverter::detectType(std::string str)
 {
 	std::string strCopy = str;
+
+	// Check if it's a single printable character
+	if (isprint(str[0]) && str.length() == 1)
+		return IS_CHAR;
 
 	if (hasMultipleDots(str))
 		return IS_ERROR;
