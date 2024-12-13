@@ -1,17 +1,28 @@
 #include "Array.hpp"
 
+/*
+	Default constructor: Initializes the pointer to NULL and the size to 0.
+*/
 template <class T>
 Array<T>::Array() {
     this->_arr = NULL;
     this->_n = 0;
 }
 
+/*
+	Constructor: Initializes the array with 'n' elements and the size to 'n'.
+*/
 template <class T>
 Array<T>::Array(unsigned int n) {
     this->_arr = new T[n];
     this->_n = n;
 }
 
+/*
+	Copy constructor: Creates a depp copy of another Array object.
+	Cheks if the size of the array is different from 0 (the array is empty),
+	if it is, it creates a new array and copies the elements of the source array.
+*/
 template <class T>
 Array<T>::Array(const Array<T> &src) {
     this->_n = src._n;
@@ -25,13 +36,20 @@ Array<T>::Array(const Array<T> &src) {
     }
 }
 
+/*
+	Destructor: Deallocates the memory of the array.
+*/
 template <class T>
 Array<T>::~Array() {
     if (this->_n != 0)
         delete [] _arr;
 }
 
-//Operator "="
+/*
+	Assigment operator: assigns the content of the array to another array.
+	Checks if the size of the array is different from 0 (the array is empty),
+	if it is, it creates a new array and copies the elements of the source array.
+*/
 template <class T>
 Array<T> &Array<T>::operator=(const Array<T> &src) {
     if (this->_n != 0) {
@@ -50,6 +68,11 @@ Array<T> &Array<T>::operator=(const Array<T> &src) {
     return (*this);
 }
 
+/*
+	Operator[]: is used to access the elements of the array.
+	Checks if the index is less than the size of the array, if it is, it returns the element of
+	the array. Otherwise, it throws an exception.
+*/
 template <class T>
 T &Array<T>::operator[](unsigned int n) {
     if (n < this->_n) {
@@ -59,7 +82,9 @@ T &Array<T>::operator[](unsigned int n) {
     }
 }
 
-// Functions
+/*
+	Size: is used to return the size of the array.
+*/
 template <class T>
 unsigned int Array<T>::size() const {
     return (this->_n);

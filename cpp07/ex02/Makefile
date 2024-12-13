@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/11/11 20:09:37 by mcatalan@st      ###   ########.fr        #
+#    Updated: 2024/12/13 18:29:31 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	Conversion
+NAME    :=	Array
 
 SRC     :=	main.cpp					\
 

@@ -6,6 +6,16 @@
 #define RESET "\033[0m"
 #define RED "\033[31m"
 
+/*
+	This class is used to create an array of any type. 
+	Private:
+		_arr: is a pointer to the array.
+		_n: is the size of the array.
+	public:
+		Ortodox canonical form.
+		operator[]: is used to access the elements of the array.
+		size: is used to return the size of the array.
+*/
 template <class T>
 class Array {
     private:
