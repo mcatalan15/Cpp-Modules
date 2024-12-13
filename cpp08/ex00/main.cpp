@@ -1,78 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/13 20:15:42 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2024/12/13 20:15:43 by mcatalan@st      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "easyfind.hpp"
-#include <vector>
-#include <deque>
 
-void    vectorTests() {
-    std::vector<int> vect;
-    vect.push_back(1);
-    vect.push_back(4);
-    vect.push_back(6);
-    vect.push_back(64);
-    vect.push_back(-123);
+/*
+	This is a simple test to check if the easyfind function works.
+	We create a list of integers and try to find a number in it.
+	If the number is found, we print it.
+	If the number is not found, we print an error message.
+*/
+int main() {
+	int find = 4;
 
-    std::cout <<std::endl << "---- existing number -----" << std::endl;
-    try {
-        std::vector<int>::const_iterator it = easyfind(vect, 4);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-    std::cout <<std::endl << "---- not existing number -----" << std::endl;
-    try {
-        std::vector<int>::const_iterator it = easyfind(vect, 17);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-    std::cout <<std::endl << "---- not existing number -----" << std::endl;
-    try {
-        std::vector<int>::const_iterator it = easyfind(vect, -211);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-}
+	std::list<int>	container;
 
-void    queueTests() {
-    std::deque<int> vect;
-    vect.push_back(100);
-    vect.push_back(-123);
-    vect.push_back(321);
-    vect.push_back(1);
-    vect.push_back(3);
+	container.push_back(1);
+	container.push_back(2);
+	container.push_back(3);
 
-    std::cout <<std::endl << "---- existing number -----" << std::endl;
-    try {
-        std::deque<int>::const_iterator it = easyfind(vect, 4);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-    std::cout <<std::endl << "---- not existing number -----" << std::endl;
-    try {
-        std::deque<int>::const_iterator it = easyfind(vect, 17);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-    std::cout <<std::endl << "---- not existing number -----" << std::endl;
-    try {
-        std::deque<int>::const_iterator it = easyfind(vect, -211);
-        std::cout << "Number " << *it << std::endl;
-    }
-    catch (std::exception e) {
-        std::cout << RED << "Not found" << RESET << std::endl;
-    }
-}
-
-int main () {
-    vectorTests();
-    queueTests();
-
-    return 0;
+	try {
+		// easyfind(container, find);
+		std::list<int>::const_iterator it = easyfind(container, find);
+		std::cout << GREEN << "Found: " << *it << RESET << std::endl;
+	} catch (std::exception &e) {
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
 }

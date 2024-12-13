@@ -9,6 +9,16 @@
 #define RESET "\033[0m"
 #define RED "\033[31m"
 
+/*
+	This class creates a Span of numbers.
+	private:
+		_multiset<int>	_span: A multiset to store the numbers.
+		unsigned int	_size: The size of the span.
+	public:
+		Orthodox canonical form
+		Getters
+		Functions
+*/
 class Span {
     private:
         std::multiset<int>  _span;
