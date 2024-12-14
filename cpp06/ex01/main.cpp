@@ -28,9 +28,9 @@ int main() {
     data->info = "hola";
 
     uintptr_t serial = Serializer::serialize(data);
-    std::cout << "Data pointer: " << data << " | int: " << data->i << " | info: " << data->info <<std::endl;
+    std::cout << "Data pointer: " << data << " | int: " << data->i << " | info: " << data->info << " | serialize num: " << serial <<std::endl;
     Data *newData = Serializer::deserialize(serial);
-    std::cout << "Data pointer: " << newData << " | int: " << newData->i << " | info: " << newData->info << std::endl;
+    std::cout << "Data pointer: " << newData << " | int: " << newData->i << " | info: " << newData->info << " | serialize num: " << serial << std::endl;
 
     delete data;
 

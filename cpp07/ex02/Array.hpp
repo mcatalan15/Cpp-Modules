@@ -29,20 +29,20 @@
 		size: is used to return the size of the array.
 */
 template <class T>
-class Array {
-    private:
-        T*              _arr;
-        unsigned int    _n;
+class	Array {
+	private:
+		T*				_arr;
+		unsigned int	_n;
 
-    public:
-        Array();
-        Array(unsigned int n);
-        Array(const Array &src);
-        Array &operator=(const Array &src);
-        ~Array();
-        
-        T &operator[](unsigned int n);
-        unsigned int    size() const;
+	public:
+		Array();
+		Array(unsigned int n);
+		Array(const Array &src);
+		Array &operator=(const Array &src);
+		~Array();
+
+		T &operator[](unsigned int n);
+		unsigned int	size() const;
 };
 
 #endif

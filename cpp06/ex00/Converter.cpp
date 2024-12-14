@@ -29,12 +29,10 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & source) {
 ScalarConverter::~ScalarConverter(void) {}
 
 // Functions
-
 /*
 	This functionc receives a string and checks if it has more than one dot.
 */
-bool hasMultipleDots(const std::string &str)
-{
+bool hasMultipleDots(const std::string &str) {
 	int dotCount = 0; // Contador de puntos
 
 	for (size_t i = 0; i < str.length(); ++i) {
@@ -66,7 +64,7 @@ bool hasInvalidCharacters(const std::string &str) {
 	bool fFound = false;
 
 	// Iterate through the rest of the string
-	for (; i < str.length(); ++i){
+	for (; i < str.length(); ++i) {
 		if (isdigit(str[i]))
 			continue;
 		else if (str[i] == '.' && !dotFound)
@@ -84,8 +82,7 @@ bool hasInvalidCharacters(const std::string &str) {
 	'+' or '-' sign at the beginning of the string and removes it. Then checks
 	if the input is a submod
 */
-int ScalarConverter::detectType(std::string str)
-{
+int ScalarConverter::detectType(std::string str) {
 	std::string strCopy = str;
 
 	// Check if it's a single printable character
@@ -98,18 +95,18 @@ int ScalarConverter::detectType(std::string str)
 	// Check for special floating-point literals
 	if (str == "+inf" || str == "-inf" || str == "nan")
 		return IS_DOUBLE;
-
 	if (str == "nanf" || str == "+inff" || str == "-inff")
 		return IS_FLOAT;
 
 	if (strCopy[0] == '-' || strCopy[0] == '+')
 		strCopy = strCopy.substr(1); // Remove the sign for further checks
 
+	if (hasInvalidCharacters(str))
+		return IS_ERROR;
+
 	// Check if it is a valid digit or decimal point
-	if (isdigit(strCopy[0]) || strCopy[0] == '.')
-	{
-		if (strCopy.find('.') != std::string::npos)
-		{
+	if (isdigit(strCopy[0]) || strCopy[0] == '.') {
+		if (strCopy.find('.') != std::string::npos) {
 			// Check for float literals (ends with 'f')
 			if (strCopy.length() > 1 && strCopy[strCopy.length() - 1] == 'f')
 				return IS_FLOAT;
@@ -117,18 +114,11 @@ int ScalarConverter::detectType(std::string str)
 		}
 		return IS_INT;
 	}
-
 	// Check if it's a single printable character
 	if (isprint(str[0]) && str.length() == 1)
 		return IS_CHAR;
 
 	return IS_ERROR; // Return error for any invalid input
-
-	// Check if it's a single printable character
-    if (isprint(str[0]) && str.length() == 1)
-        return IS_CHAR;
-
-    return IS_ERROR;	
 }
 
 /*
@@ -136,7 +126,6 @@ int ScalarConverter::detectType(std::string str)
 	We use fixed and setprecision to print the float with one decimal
 	and the char is printed between single quotes.
 */
-
 void	ScalarConverter::printCastFromChar(std::string str) {
 	std::cout << "char: " << "'" << str[0] << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
@@ -165,9 +154,10 @@ void	ScalarConverter::printCastFromInt(std::string str) {
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " <<  value << std::endl;
+	double doubleValue = std::atof(str.c_str());
 	std::cout << std::fixed << std::setprecision(1);
-	std::cout << "float: " << static_cast<float>(value) << 'f' << std::endl;	
-	std::cout << "double: " << static_cast<double>(value) << std::endl;
+	std::cout << "float: " << static_cast<float>(doubleValue) << 'f' << std::endl;	
+	std::cout << "double: " << static_cast<double>(doubleValue) << std::endl;
 }
 
 /*
@@ -203,8 +193,7 @@ void	ScalarConverter::printCastFromFloat(std::string str) {
 	When we use atof it removes the positive sign, so we use std::showpos to print it.
 	Noshowpos is used to print the sign of the float and double values.
 */
-void ScalarConverter::printCastFromDouble(std::string str)
-{
+void ScalarConverter::printCastFromDouble(std::string str){
 	double value;
 
 	value = std::atof(str.c_str());
@@ -232,8 +221,6 @@ void ScalarConverter::printCastFromDouble(std::string str)
 */
 void ScalarConverter::convert(std::string const str) {
 
-	if (hasInvalidCharacters(str))
-		throw ScalarConverter::InvalidFormat();
 	switch (detectType(str)) {
 		case 0:
 			printCastFromChar(str);

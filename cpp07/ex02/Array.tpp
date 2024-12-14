@@ -17,8 +17,8 @@
 */
 template <class T>
 Array<T>::Array() {
-    this->_arr = NULL;
-    this->_n = 0;
+	this->_arr = NULL;
+	this->_n = 0;
 }
 
 /*
@@ -26,26 +26,24 @@ Array<T>::Array() {
 */
 template <class T>
 Array<T>::Array(unsigned int n) {
-    this->_arr = new T[n];
-    this->_n = n;
+	this->_arr = new T[n];
+	this->_n = n;
 }
 
 /*
-	Copy constructor: Creates a depp copy of another Array object.
+	Copy constructor: Creates a deep copy of another Array object.
 	Cheks if the size of the array is different from 0 (the array is empty),
 	if it is, it creates a new array and copies the elements of the source array.
 */
 template <class T>
 Array<T>::Array(const Array<T> &src) {
-    this->_n = src._n;
-    if (src._n != 0) {
-        this->_arr = new T[src._n];
-        for(unsigned int i = 0; i < src._n; i++) {
-            this->_arr[i] = src._arr[i];
-        }
-    } else {
-        this->_arr = NULL;
-    }
+	this->_n = src._n;
+	if (src._n != 0) {
+		this->_arr = new T[src._n];
+		for(unsigned int i = 0; i < src._n; i++)
+			this->_arr[i] = src._arr[i];
+	} else
+		this->_arr = NULL;
 }
 
 /*
@@ -53,8 +51,8 @@ Array<T>::Array(const Array<T> &src) {
 */
 template <class T>
 Array<T>::~Array() {
-    if (this->_n != 0)
-        delete [] _arr;
+	if (this->_n != 0)
+		delete [] _arr;
 }
 
 /*
@@ -64,20 +62,18 @@ Array<T>::~Array() {
 */
 template <class T>
 Array<T> &Array<T>::operator=(const Array<T> &src) {
-    if (this->_n != 0) {
-        delete [] _arr;
-        this->_arr = NULL;
-    }
-    this->_n = src._n;
-    if (src._n != 0) {
-        this->_arr = new T[src._n];
-        for (unsigned int i = 0; i < src._n; i++) {
-            this->_arr[i] = src._arr[i];
-        }
-    } else {
-        this->_arr = NULL;
-    }
-    return (*this);
+	if (this->_n != 0) {
+		delete [] _arr;
+		this->_arr = NULL;
+	}
+	this->_n = src._n;
+	if (src._n != 0) {
+		this->_arr = new T[src._n];
+		for (unsigned int i = 0; i < src._n; i++)
+			this->_arr[i] = src._arr[i];
+	} else
+		this->_arr = NULL;
+	return (*this);
 }
 
 /*
@@ -87,18 +83,15 @@ Array<T> &Array<T>::operator=(const Array<T> &src) {
 */
 template <class T>
 T &Array<T>::operator[](unsigned int n) {
-    if (n < this->_n) {
-        return (this->_arr[n]);
-    } else {
-        throw std::exception();
-    }
+	if (n < this->_n)
+		return (this->_arr[n]);
+	else
+		throw std::exception();
 }
 
 /*
 	Size: is used to return the size of the array.
 */
 template <class T>
-unsigned int Array<T>::size() const {
-    return (this->_n);
-}
+unsigned int Array<T>::size() const { return (this->_n); }
 

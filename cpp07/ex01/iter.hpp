@@ -20,19 +20,19 @@
 	element of the array. In this case, the function is a print function.
 */
 template <typename T>
-void	iter(T *array, unsigned int len, void (*f)(T)) {
-    if (array) {
-        for (unsigned int i = 0; i < len; i++)
-            f(array[i]);
-    }
+void	iter(T *array, unsigned int len, void (*print)(T)) {
+	if (array) {
+		for (unsigned int i = 0; i < len; i++)
+			print(array[i]);
+	}
 }
 
 /*
 	This function is used to print the elements of the array.
 */
 template <typename T>
-void    print(const T elem) {
-    std::cout << elem << std::endl;
+void	print(const T elem) {
+	std::cout << elem << std::endl;
 }
 
 #endif
