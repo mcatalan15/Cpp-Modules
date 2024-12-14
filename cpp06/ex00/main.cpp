@@ -16,6 +16,7 @@
 	main function with argv argument and tests comented. If argv num not 2 print
 	error message. And in case argv[1] is wrong, print the exception message.
 */
+
 int main(int argc, char **argv) {
 	if (argc == 2) {
 		try {
