@@ -6,7 +6,7 @@
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/12/02 11:45:59 by mcatalan         ###   ########.fr        #
+#    Updated: 2024/12/28 17:11:04 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	easyFind	
+NAME    :=	PmergeMe	
 
 SRC     :=	main.cpp					\
+			PmergeMe.cpp				\
 
 OBJ_DIR := obj
 
