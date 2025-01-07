@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 16:40:04 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/28 17:24:02 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2024/12/28 19:49:18 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ class PmergeMe {
 		std::deque<unsigned int> jacob_sort(std::deque<unsigned int> src, size_t groupsize);
 		void insert_group(std::deque<unsigned int> &main, std::deque<unsigned int> src, size_t init, size_t end, std::deque<unsigned int>::iterator pos);
 
-		class errorException : public std::logic_error
-		{
-		public:
-			errorException();
+		class errorException : public std::logic_error {
+			public:
+				errorException();
 		};
 
 	private:
