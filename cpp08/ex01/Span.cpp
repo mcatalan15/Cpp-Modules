@@ -47,11 +47,11 @@ void Span::addNumber(int nb) {
 }
 
 // Add a range of numbers to the span using random numbers for the size of the span
-void    Span::addRangeNumbers() {
-    srand(time(NULL));
-    for (unsigned int i = 0; i < _size; i++) {
-        this->_span.insert(rand() % _size + 1);
-    }
+void	Span::addRangeNumbers() {
+	srand(time(NULL));
+	for (unsigned int i = 0; i < _size; i++) {
+		this->_span.insert(rand() % _size + 1);
+	}
 }
 
 /*
@@ -59,34 +59,34 @@ void    Span::addRangeNumbers() {
 	We iterate through the span and calculate the difference between each number.
 	We store the smallest difference in the variable diff.
 */
-unsigned int    Span::shortestSpan() {
-    if (this->_span.empty() || this->_span.size() < 2)
-        throw std::runtime_error("Span has less than 2 numbers.");
+unsigned int	Span::shortestSpan() {
+	if (this->_span.empty() || this->_span.size() < 2)
+		throw std::runtime_error("Span has less than 2 numbers.");
 
-    std::multiset<int>::iterator    it = ++(this->_span.begin());
-    std::multiset<int>::iterator    prev = this->_span.begin();
-    unsigned int diff = *(--(this->_span.end())) - *it;
+	std::multiset<int>::iterator    it = ++(this->_span.begin());
+	std::multiset<int>::iterator    prev = this->_span.begin();
+	unsigned int diff = *(--(this->_span.end())) - *prev;
 
-    for (; it != this->_span.end(); it++) {
-        if ((unsigned int)(*it - *prev) < diff)
-            diff = *it - *prev;
-        prev++;
-    }
-    return diff;
+	for (; it != this->_span.end(); it++) {
+		if ((unsigned int)(*it - *prev) < diff)
+			diff = *it - *prev;
+		prev++;
+	}
+	return diff;
 }
 
 /*
 	This function calculates the longest span between two numbers in the span.
 	We return the difference between the last and first element in the span.
 */
-unsigned int Span::longestSpan() {
-    if (this->_span.empty() || this->_span.size() < 2)
-        throw std::runtime_error("Span has less than 2 numbers.");
-    else {
-        std::multiset<int>::iterator first = this->_span.begin();
-        std::multiset<int>::iterator last = this->_span.end();
-        last--;
-        return (*last - *first);
+unsigned int	Span::longestSpan() {
+	if (this->_span.empty() || this->_span.size() < 2)
+		throw std::runtime_error("Span has less than 2 numbers.");
+	else {
+		std::multiset<int>::iterator first = this->_span.begin();
+		std::multiset<int>::iterator last = this->_span.end();
+		last--;
+		return (*last - *first);
     }
 }
 

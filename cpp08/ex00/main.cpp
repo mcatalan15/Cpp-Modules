@@ -19,7 +19,7 @@
 	If the number is not found, we print an error message.
 */
 int main() {
-	int find = 4;
+	int find = 3;
 
 	std::list<int>	container;
 
@@ -29,7 +29,7 @@ int main() {
 
 	try {
 		// easyfind(container, find);
-		std::list<int>::const_iterator it = easyfind(container, find);
+		std::list<int>::const_iterator it = ::easyfind(container, find);
 		std::cout << GREEN << "Found: " << *it << RESET << std::endl;
 	} catch (std::exception &e) {
 		std::cout << RED << e.what() << RESET << std::endl;

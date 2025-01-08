@@ -20,7 +20,7 @@ void mandatoryTest(){
 	std::cout << std::endl << "----- Mandatory test ----- " << std::endl;
 	Span sp = Span(5);
 	try {
-		sp.addNumber(-2147483648);
+		sp.addNumber(21474836);
 		sp.addNumber(10);
 
 		std::cout << sp.shortestSpan() << std::endl;
@@ -36,7 +36,7 @@ void mandatoryTest(){
 */
 void spanIsFullTest(){
 	std::cout << std::endl << "----- Full span test ----- " << std::endl;
-	Span sp = Span(2);
+	Span sp = Span(4);
 	try {
 		sp.addNumber(6);
 		sp.addNumber(3);

@@ -94,4 +94,3 @@ T &Array<T>::operator[](unsigned int n) {
 */
 template <class T>
 unsigned int Array<T>::size() const { return (this->_n); }
-
