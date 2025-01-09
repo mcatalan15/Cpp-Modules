@@ -63,7 +63,6 @@ int stringToInt(const std::string& str) {
     return value;
 }
 
-
 double stringToDouble(const std::string& str) {
     std::stringstream ss(str);
     double value;
@@ -112,10 +111,22 @@ string	getDate(string input) {
 	return date;
 }
 
+void check_decimals(const std::string& line) {
+    size_t dot_pos = line.find('.');
+    if (dot_pos != std::string::npos) {
+        if (dot_pos == 0 || !isdigit(line[dot_pos - 1]))
+            throw std::invalid_argument("Invalid decimal number: no digit before the dot.");
+        if (dot_pos == line.length() - 1 || !isdigit(line[dot_pos + 1]))
+            throw std::invalid_argument("Invalid decimal number: no digit after the dot.");
+    }
+}
+
 double	getQuantity(string input) {
 	size_t bar = input.find("|");
 	std::string line = removeSpaces(input.substr(++bar));
+	check_decimals(line);
 	double quantity = stringToDouble(line);
+	std::cout << "Quantity: " << quantity << std::endl;
 	if (quantity < 0)
 		throw std::out_of_range("not a positive number.");
 	if (quantity > 1000)
