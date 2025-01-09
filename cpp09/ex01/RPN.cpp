@@ -6,7 +6,7 @@
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:16:43 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/23 20:39:54 by mcatalan@st      ###   ########.fr       */
+/*   Updated: 2025/01/08 10:43:25 by mcatalan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void RPN::operateStack(std::string input) {
     if (input.empty())
         throw std::invalid_argument("Error");
 
-	size_t i = 0;
+    size_t i = 0;
 
     //Handle single number cases
     if (input.size() == 1 && isdigit(input[0])) {

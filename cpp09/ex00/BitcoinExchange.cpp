@@ -7,8 +7,6 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 10:48:22 by mcatalan@st       #+#    #+#             */
 /*   Updated: 2024/12/17 11:16:32 by mcatalan@st      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
@@ -55,6 +53,27 @@ bool	isStrDouble(string str) {
 	return (true);
 }
 
+int stringToInt(const std::string& str) {
+    std::stringstream ss(str);
+    int value;
+    ss >> value;
+    if (ss.fail() || !ss.eof()) {
+        throw std::invalid_argument("Invalid integer format: " + str);
+    }
+    return value;
+}
+
+
+double stringToDouble(const std::string& str) {
+    std::stringstream ss(str);
+    double value;
+    ss >> value;
+    if (ss.fail() || !ss.eof()) {
+        throw std::invalid_argument("Invalid double format: " + str);
+    }
+    return value;
+}
+
 string	removeSpaces(string line) {
 	size_t start = line.find_first_not_of(' ');
 	if (start == string::npos)
@@ -88,7 +107,7 @@ string	getDate(string input) {
 	line = removeSpaces(line.substr(10));
 	if (line[0] != '|')
 		throw std::invalid_argument("bad input");
-	checkExistingDate(std::stoi(y), std::stoi(m), std::stoi(d));
+	checkExistingDate(stringToInt(y), stringToInt(m), stringToInt(d));
 	string date = y + "-" + m + "-" + d;
 	return date;
 }
@@ -96,7 +115,7 @@ string	getDate(string input) {
 double	getQuantity(string input) {
 	size_t bar = input.find("|");
 	std::string line = removeSpaces(input.substr(++bar));
-	double quantity = std::stod(line);
+	double quantity = stringToDouble(line);
 	if (quantity < 0)
 		throw std::out_of_range("not a positive number.");
 	if (quantity > 1000)
@@ -127,7 +146,7 @@ void BitcoinExchange::searchInDatabase(std::string date, double quantity)
 }
 
 void BitcoinExchange::showBitcoinValue() {
-	std::ifstream input(this->_input);
+	std::ifstream input(this->_input.c_str());
 	if (!input.is_open())
 		throw std::invalid_argument("could not open file.");
 

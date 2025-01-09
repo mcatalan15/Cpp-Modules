@@ -19,6 +19,8 @@
 #include <map>
 #include <fstream>
 #include <stdexcept>
+#include <cstdlib> // For std::atof
+#include <sstream> // Include stringstream header
 
 using std::string;
 
