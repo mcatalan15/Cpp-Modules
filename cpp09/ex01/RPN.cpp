@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/17 12:16:43 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2025/01/08 10:43:25 by mcatalan         ###   ########.fr       */
+/*   Created: 2025/01/10 12:11:14 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2025/01/10 12:11:16 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ double executeOperation(double a, double b, char op) {
 
 // functions
 void RPN::operateStack(std::string input) {
-    if (input.empty())
-        throw std::invalid_argument("Error");
+	if (input.empty())
+		throw std::invalid_argument("Error");
 
-    size_t i = 0;
+	size_t i = 0;
 
-    //Handle single number cases
-    if (input.size() == 1 && isdigit(input[0])) {
-        std::cout << (input[0] - '0') << std::endl;
-        return ;
-    }
+	//Handle single number cases
+	if (input.size() == 1 && isdigit(input[0])) {
+		std::cout << (input[0] - '0') << std::endl;
+		return ;
+	}
 	while (i < input.size()) {
 		if (isdigit(input[i]))
 			_st.push(input[i] - '0');

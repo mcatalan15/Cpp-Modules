@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 16:40:04 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2024/12/28 19:49:18 by mcatalan@st      ###   ########.fr       */
+/*   Created: 2025/01/10 12:11:47 by mcatalan@st       #+#    #+#             */
+/*   Updated: 2025/01/10 12:11:49 by mcatalan@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 using std::string;
 
 class PmergeMe {
-    public:
-        PmergeMe (char **argv);
-        PmergeMe (const PmergeMe& cpy);
-        ~PmergeMe ();    
-        PmergeMe  &operator=(const PmergeMe  &src);
+	public:
+		PmergeMe (char **argv);
+		PmergeMe (const PmergeMe& cpy);
+		~PmergeMe ();	
+		PmergeMe  &operator=(const PmergeMe  &src);
 
 		void add_arguments(char **arg);
 		void print_result();

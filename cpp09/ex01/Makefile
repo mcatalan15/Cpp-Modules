@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/16 08:03:29 by mcatalan@st       #+#    #+#              #
-#    Updated: 2024/12/19 11:16:11 by mcatalan@st      ###   ########.fr        #
+#    Created: 2025/01/10 12:10:23 by mcatalan@st       #+#    #+#              #
+#    Updated: 2025/01/10 12:10:57 by mcatalan@st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,22 @@ YELLOW = \033[0;33m
 BLUE = \033[0;34m
 RST = \033[0m
 
-NAME    :=	RPN	
+NAME	:=	RPN	
 
-SRC     :=	main.cpp				\
+SRC	 :=	main.cpp				\
 			RPN.cpp					\
 
 OBJ_DIR := obj
 
-OBJ     := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+OBJ	 := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-CPP     := c++ -std=c++98
+CPP	 := c++ -std=c++98
 
 CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -pedantic
 
-RM      := @rm -rf
+RM	  := @rm -rf
 
-all:    $(NAME)
+all:	$(NAME)
 
 clean:
 	$(RM) $(OBJ_DIR) $(DEP_DIR) > /dev/null
