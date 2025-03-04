@@ -11,30 +11,14 @@
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-
-// std::map<std::string, double> saveDatabaseMap() {
-// 	std::ifstream database("data.csv");
-// 	if (!database.is_open())
-// 		throw std::invalid_argument("could not open file.");
-
-// 	std::map<std::string, double> databaseMap;
-// 	std::string line;
-// 	int index = 0;
-// 	while (std::getline(database, line)) {
-// 		if (index > 0) {
-// 			size_t posComma = line.find(",");
-// 			databaseMap.insert(std::make_pair(line.substr(0, line.find(",")), std::stringstream(line.substr(++posComma))));
-// 		}
-// 		index++;
-// 	}
-// 	return databaseMap;
-// }
+#include <ostream>
 
 std::map<std::string, double> saveDatabaseMap() {
     std::ifstream database("data.csv"); // Open the database file
-    if (!database.is_open())
+    if (!database.is_open()) {
+    	std::cerr << "Error: could not open data.csv" << std::endl;
         throw std::invalid_argument("could not open file."); // Throw error if file cannot be opened
-
+    }
     std::map<std::string, double> databaseMap; // Map to store the date-value pairs
     std::string line;
     int index = 0;
@@ -67,11 +51,13 @@ std::map<std::string, double> saveDatabaseMap() {
 
 int	main(int argc, char **argv) {
 	try {
-		if (argc != 2)
+		if (argc != 2) {
+			std::cerr <<"Usage: " << argv[0] << "input_file" << std::endl;
 			throw std::invalid_argument("could not open file.");
+		}
 		std::map<std::string, double> databaseMap = saveDatabaseMap();
 		BitcoinExchange bitcoinEchange(argv[1], databaseMap);
-	} catch (std::invalid_argument e) {
+	} catch (const std::invalid_argument &e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
 	return 0;
