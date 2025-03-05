@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 11:33:17 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2025/01/10 11:33:25 by mcatalan@st      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "BitcoinExchange.hpp"
 
 using std::string;
@@ -163,22 +151,22 @@ void BitcoinExchange::showBitcoinValue() {
 		throw std::invalid_argument("could not open file.");
 
 	std::string line;
-	int index = 0;
+	//int index = 0;
 	while (std::getline(input, line)) {
-		if (index > 0) {
+		//if (index > 0) {
 			try {
 				std::string date = getDate(line);
 				double quantity = getQuantity(line);
 				searchInDatabase(date, quantity);
 			}
-			catch (std::invalid_argument e) {
+			catch (const std::invalid_argument &e) {
 				std::cout << "Error: " << e.what() << std::endl;
 			}
 			catch (const std::out_of_range &e) {
 				std::cout << "Error: " << e.what() << std::endl;
 			}
-		}
-		index++;
+			//}
+		//index++;
 	}
 	input.close();
 }
