@@ -4,11 +4,18 @@
 #include <ctime>
 #include <cstdlib>
 #include <iomanip>
+#include <sys/time.h>
+
+#define MICROSEC 1000000
+
+using std::string;
 
 class PmergeMe {
 	private:
 		std::vector<int> _vec;
 		std::deque<int>	_deq;
+		float			_vecT;
+		float			_deqT;
 
 		// Jacobsthal numbers up to n=12 (sufficient for 3000 elements)
 		static const int _jacobsthal[13];
@@ -26,8 +33,9 @@ class PmergeMe {
 		~PmergeMe();
 
 		// Public interface
-		void sortV();
-		void printV() const;
+		void	sortV();
+		void	printV() const;
+		void	printT(int amount);
 
 		class errorException : public std::logic_error {
 			public:
@@ -135,7 +143,23 @@ void PmergeMe::mergeInsertionSortV(std::vector<int>& arr) {
 }
 
 // Public sort function
-void PmergeMe::sortV() { mergeInsertionSortV(_vec); }
+void PmergeMe::sortV() {
+	struct timeval start, end;
+	
+	gettimeofday(&start, NULL);
+	mergeInsertionSortV(_vec);
+	gettimeofday(&end, NULL);
+	this->_vecT = (end.tv_sec - start.tv_sec) * MICROSEC + end.tv_usec - start.tv_usec;
+}
+
+/*void PmergeMe::sortD() {
+	struct timeval start, end;
+	
+	gettimeofday(&start, NULL);
+	mergeInsertionSortD(_vec);
+	gettimeofday(&end, NULL);
+	this->_deqT = (end.tv_sec - start.tv_sec) * MICROSEC + end.tv_usec - start.tv_usec;
+}*/
 
 // Print the sorted data
 void PmergeMe::printV() const {
@@ -147,6 +171,14 @@ void PmergeMe::printV() const {
 
 // Error exception constructor
 PmergeMe::errorException::errorException() : std::logic_error("Error: Invalid input") {}
+
+void	PmergeMe::printT(int amount) {
+	if (this->_deqT >= 1000 && this->_vecT >= 1000) {
+		this->_vecT /= 1000;
+		//this->_deqT /= 1000;
+	}
+	std::cout << "Time to process a range of " << amount << " elements with std::vector : " << std::fixed << std::setprecision(5) << this->_vecT << " us" << std::endl;
+}
 
 int main(int argc, char **argv) {
 		if (argc < 2) {
@@ -162,15 +194,11 @@ int main(int argc, char **argv) {
 			std::cout << "Before sorting: ";
 			sorter.printV();
 			
-			clock_t startV = clock();
 			sorter.sortV();
-			clock_t endV = clock();
 			
-			double timerV = (double)(endV - startV) / CLOCKS_PER_SEC * 1000000; 
 			std::cout << "After sorting: ";
 			sorter.printV();
-			
-			std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector: " << timerV << " us" <<std::endl;
+			sorter.printT(argc - 1);
 			
 		} catch (PmergeMe::errorException &e) {
 			std::cerr << e.what() << std::endl;
