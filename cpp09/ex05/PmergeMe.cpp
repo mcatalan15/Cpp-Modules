@@ -6,39 +6,33 @@
 #include <iomanip>
 
 class PmergeMe {
-private:
-    std::vector<int> _vec;
-    std::deque<int>	_deq;
+	private:
+		std::vector<int> _vec;
+		std::deque<int>	_deq;
 
-    // Jacobsthal numbers up to n=12 (sufficient for 3000 elements)
-    static const int _jacobsthal[13];
+		// Jacobsthal numbers up to n=12 (sufficient for 3000 elements)
+		static const int _jacobsthal[13];
 
-    // Helper functions
-    void mergeInsertionSortV(std::vector<int>& arr);
-    void insertUsingJacobsthalV(std::vector<int>& sorted, const std::vector<int>& smaller);
-    int binarySearchInsertPositionV(const std::vector<int>& arr, int value);
-    
-//    void mergeInsertionSortD(std::vector<int>& arr);
-//    void insertUsingJacobsthalD(std::vector<int>& sorted, const std::vector<int>& smaller);
-//    int binarySearchInsertPositionD(const std::vector<int>& arr, int value);
+		// Helper functions
+		void mergeInsertionSortV(std::vector<int>& arr);
+		void insertUsingJacobsthalV(std::vector<int>& sorted, const std::vector<int>& smaller);
+		int binarySearchInsertPositionV(const std::vector<int>& arr, int value);
 
-public:
-    // Orthodox Canonical Form
-    PmergeMe(char **argv);
-    PmergeMe(const PmergeMe& other);
-    PmergeMe& operator=(const PmergeMe& other);
-    ~PmergeMe();
+	public:
+		// Orthodox Canonical Form
+		PmergeMe(char **argv);
+		PmergeMe(const PmergeMe& other);
+		PmergeMe& operator=(const PmergeMe& other);
+		~PmergeMe();
 
-    // Public interface
-    void sortV();
-    void printV() const;
-    
-    //void sortD();
-    //void printD() const;
-    class errorException : public std::logic_error {
-    public:
-        errorException();
-    };
+		// Public interface
+		void sortV();
+		void printV() const;
+
+		class errorException : public std::logic_error {
+			public:
+				errorException();
+		};
 };
 
 // Jacobsthal numbers up to n=12
@@ -88,9 +82,19 @@ int PmergeMe::binarySearchInsertPositionV(const std::vector<int>& arr, int value
 
 // Insert smaller elements using Jacobsthal numbers
 void PmergeMe::insertUsingJacobsthalV(std::vector<int>& sorted, const std::vector<int>& smaller) {
-    for (size_t i = 0; i < smaller.size(); ++i) {
-        int pos = binarySearchInsertPositionV(sorted, smaller[i]);
-        sorted.insert(sorted.begin() + pos, smaller[i]);
+    size_t j = 0;
+    size_t k = 0;
+    while (j < smaller.size()) {
+        size_t next = _jacobsthal[k];
+        if (next >= smaller.size()) {
+            next = smaller.size();
+        }
+        for (size_t i = next; i > j; --i) {
+            int pos = binarySearchInsertPositionV(sorted, smaller[i - 1]);
+            sorted.insert(sorted.begin() + pos, smaller[i - 1]);
+        }
+        j = next;
+        ++k;
     }
 }
 
@@ -124,7 +128,6 @@ void PmergeMe::mergeInsertionSortV(std::vector<int>& arr) {
     for (size_t i = 0; i < pairs.size(); ++i) {
         smallerElements.push_back(pairs[i].first);
     }
-    // Step 4: Insert smaller elements using Jacobsthal numbers
     insertUsingJacobsthalV(largerElements, smallerElements);
 
     // Update the array
@@ -146,39 +149,32 @@ void PmergeMe::printV() const {
 PmergeMe::errorException::errorException() : std::logic_error("Error: Invalid input") {}
 
 int main(int argc, char **argv) {
-	if (argc < 2) {
-		std::cout << "Usage: " << argv[0] << " <numbers>" << std::endl;
-		return 1;
-	} else if (argc > 3001) {
-		std::cout << "Error: N numbers must be less than 3000." << std::endl;
-		return 1;
-	}
-	try {
-		// Vector
-		PmergeMe sorter(argv);
-		std::cout << "Before sorting: ";
-		sorter.printV();
-		
-		clock_t startV = clock();
-		sorter.sortV();
-		clock_t endV = clock();
-		
-		double timerV = (double)(endV - startV) / CLOCKS_PER_SEC * 1000000; 
-		std::cout << "After sorting: ";
-		sorter.printV();
-		
-		std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector: " << timerV << " us" <<std::endl;
-		
-		// Deque
-		/*clock_t startD = clock();
-		sorter.sortDeq();
-		clock_t endD = clock();
-		
-		double timerD = (double)(endD - startD) / CLOCKS_PER_SEC * 1000000; 
-		std::cout << "Time to process a range of " << argc - 1 << " elements with std::deque: " << timerD << " us" <<std::endl;*/
-	} catch (PmergeMe::errorException &e) {
-		std::cerr << e.what() << std::endl;
-		return 1;
-	}
-	return 0;
+		if (argc < 2) {
+			std::cout << "Usage: " << argv[0] << " <numbers>" << std::endl;
+			return 1;
+		} else if (argc > 3001) {
+			std::cout << "Error: N numbers must be less than 3000." << std::endl;
+			return 1;
+		}
+		try {
+			// Vector
+			PmergeMe sorter(argv);
+			std::cout << "Before sorting: ";
+			sorter.printV();
+			
+			clock_t startV = clock();
+			sorter.sortV();
+			clock_t endV = clock();
+			
+			double timerV = (double)(endV - startV) / CLOCKS_PER_SEC * 1000000; 
+			std::cout << "After sorting: ";
+			sorter.printV();
+			
+			std::cout << "Time to process a range of " << argc - 1 << " elements with std::vector: " << timerV << " us" <<std::endl;
+			
+		} catch (PmergeMe::errorException &e) {
+			std::cerr << e.what() << std::endl;
+			return 1;
+		}
+		return 0;
 }
