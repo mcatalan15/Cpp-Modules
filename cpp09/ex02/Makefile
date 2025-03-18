@@ -18,8 +18,7 @@ RST = \033[0m
 
 NAME    :=	PmergeMe	
 
-SRC     :=	main.cpp					\
-			PmergeMe.cpp				\
+SRC     :=			PmergeMe.cpp					\
 
 OBJ_DIR := obj
 
