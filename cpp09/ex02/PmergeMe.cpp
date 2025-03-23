@@ -1,53 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <deque>
-#include <ctime>
-#include <cstdlib>
-#include <iomanip>
-#include <sys/time.h>
+#include "PmergeMe.hpp"
 
-#define MICROSEC 1000000
-
-using std::string;
-
-class PmergeMe {
-	private:
-		std::vector<int> _vec;
-		std::deque<int>	_deq;
-		float			_vecT;
-		float			_deqT;
-
-		// Jacobsthal numbers up to n=12 (sufficient for 3000 elements)
-		static const int _jacobsthal[13];
-
-		// Helper functions
-		void mergeInsertionSortV(std::vector<int>& arr);
-		void insertUsingJacobsthalV(std::vector<int>& sorted, const std::vector<int>& smaller);
-		int binarySearchInsertPositionV(const std::vector<int>& arr, int value);
-
-		void mergeInsertionSortD(std::deque<int>& arr);
-		void insertUsingJacobsthalD(std::deque<int>& sorted, const std::deque<int>& smaller);
-		int binarySearchInsertPositionD(const std::deque<int>& arr, int value);
-	public:
-		// Orthodox Canonical Form
-		PmergeMe(char **argv);
-		PmergeMe(const PmergeMe& other);
-		PmergeMe& operator=(const PmergeMe& other);
-		~PmergeMe();
-
-		// Public interface
-		void	sortV();
-		void	printV() const;
-		void	printT(int amount, bool flag);
-		void	sortD();
-		void	printD() const;
-		class errorException : public std::logic_error {
-			public:
-				errorException();
-		};
-};
-
-// Jacobsthal numbers up to n=12
+// Jacobsthal numbers up to n=13
 const int PmergeMe::_jacobsthal[13] = {0, 1, 1, 3, 5, 11, 21, 43, 85, 171, 341, 683, 1365};
 
 // Default constructor
@@ -262,35 +215,4 @@ void	PmergeMe::printT(int amount, bool flag) {
 	}
 	string type = flag ? "vector" : "deque";
 	std::cout << "Time to process a range of " << amount << " elements with " << type << ": " << std::fixed << std::setprecision(5) << this->_vecT << " us" << std::endl;
-}
-
-int main(int argc, char **argv) {
-		if (argc < 2) {
-			std::cout << "Usage: " << argv[0] << " <numbers>" << std::endl;
-			return 1;
-		} else if (argc > 3001) {
-			std::cout << "Error: N numbers must be less than 3000." << std::endl;
-			return 1;
-		}
-		try {
-			// Vector
-			PmergeMe sorter(argv);
-			std::cout << "Before sorting: ";
-			sorter.printV();
-			
-			sorter.sortV();
-			
-			std::cout << "After sorting: ";
-			sorter.printV();
-			sorter.printT(argc - 1, 1);
-			
-			//Deque
-			sorter.sortD();
-			sorter.printT(argc - 1, 0);
-			
-		} catch (PmergeMe::errorException &e) {
-			std::cerr << e.what() << std::endl;
-			return 1;
-		}
-		return 0;
 }
