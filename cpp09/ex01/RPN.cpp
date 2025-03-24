@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RPN.cpp                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 12:11:14 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2025/01/10 12:11:16 by mcatalan@st      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "RPN.hpp"
 
 RPN::RPN(std::string input) { operateStack(input); }
@@ -35,6 +23,7 @@ bool isOperator(char c) {
 		return (false);
 }
 
+// Switch case for each operation
 double executeOperation(double a, double b, char op) {
 	switch (op) {
 	case '+':

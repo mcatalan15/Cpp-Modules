@@ -1,69 +1,50 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 12:11:47 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2025/01/10 12:11:49 by mcatalan@st      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#pragma once
 
-#ifndef PMERGEME_HPP
-# define PMERGEME_HPP
-# define MICROSEC 1000000
-# include <iostream>
-# include <cstdlib>
-# include <deque>
-# include <vector>
-# include <sys/time.h>
-# include <iomanip>
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <ctime>
+#include <cstdlib>
+#include <iomanip>
+#include <sys/time.h>
+
+#define MICROSEC 1000000
 
 using std::string;
 
 class PmergeMe {
+	private:
+		std::vector<int> _vec;
+		std::deque<int>	_deq;
+		float			_vecT;
+		float			_deqT;
+
+		// Jacobsthal numbers up to n=13 (sufficient for 3000 elements)
+		static const int _jacobsthal[13];
+
+		// Helper functions
+		void mergeInsertionSortV(std::vector<int>& arr);
+		void insertUsingJacobsthalV(std::vector<int>& sorted, const std::vector<int>& smaller);
+		int binarySearchInsertPositionV(const std::vector<int>& arr, int value);
+
+		void mergeInsertionSortD(std::deque<int>& arr);
+		void insertUsingJacobsthalD(std::deque<int>& sorted, const std::deque<int>& smaller);
+		int binarySearchInsertPositionD(const std::deque<int>& arr, int value);
 	public:
-		PmergeMe (char **argv);
-		PmergeMe (const PmergeMe& cpy);
-		~PmergeMe ();	
-		PmergeMe  &operator=(const PmergeMe  &src);
+		// Orthodox Canonical Form
+		PmergeMe(char **argv);
+		PmergeMe(const PmergeMe& other);
+		PmergeMe& operator=(const PmergeMe& other);
+		~PmergeMe();
 
-		void add_arguments(char **arg);
-		void print_result();
-		void print_time();
-		void print_vec();
-		void print_vec(std::vector<unsigned int> aux);
-		void print_vec(std::vector<unsigned int> aux, size_t groupsize);
-		bool is_repeat(int n, std::vector<unsigned int> vec);
-		bool is_valid(string arg);
-		void merge_process();
-
-		void compare_and_insert(std::vector<unsigned int> &main, std::vector<unsigned int> src, size_t pos, size_t groupsize);
-		std::vector<unsigned int> vector_merge(std::vector<unsigned int> &src);
-		std::vector<unsigned int> merge_vectors(std::vector<unsigned int> src, size_t groupsize);
-		std::vector<unsigned int> jacob_sort(std::vector<unsigned int> src, size_t groupsize);
-		void insert_group(std::vector<unsigned int> &main, std::vector<unsigned int> src, size_t init, size_t end, std::vector<unsigned int>::iterator pos);
-
-		void compare_and_insert(std::deque<unsigned int> &main, std::deque<unsigned int> src, size_t pos, size_t groupsize);
-		std::deque<unsigned int> deque_merge(std::deque<unsigned int> &src);
-		std::deque<unsigned int> merge_deques(std::deque<unsigned int> src, size_t groupsize);
-		std::deque<unsigned int> jacob_sort(std::deque<unsigned int> src, size_t groupsize);
-		void insert_group(std::deque<unsigned int> &main, std::deque<unsigned int> src, size_t init, size_t end, std::deque<unsigned int>::iterator pos);
-
+		// Public interface
+		void	sortV();
+		void	printV() const;
+		void	printT(int amount, bool flag);
+		void	sortD();
+		void	printD() const;
 		class errorException : public std::logic_error {
 			public:
 				errorException();
 		};
-
-	private:
-		std::deque<unsigned int>	deq;
-		std::vector<unsigned int>	vec;
-		string						arg;
-		unsigned int				amount;
-		float						vecTime;
-		float						deqTime;
-		int							jacob[15];
 };
-
-#endif

@@ -1,32 +1,32 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mcatalan@student.42barcelona.com <mcata    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 12:11:31 by mcatalan@st       #+#    #+#             */
-/*   Updated: 2025/01/10 12:11:33 by mcatalan@st      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "PmergeMe.hpp"
 
-/*
-	main function for PmergeMe.
-	Checks the number of arguments and calls the merge_process function.
-	Prints the time taken to process the data.
-	if the number of arguments is invalid, it throws an error.
-*/
 int main(int argc, char **argv) {
-	try {
-		if (argc < 2 || argc > 10000)
-			throw PmergeMe::errorException();
-		PmergeMe	merge(&argv[1]);
-		merge.merge_process();
-		merge.print_time();
-	}
-	catch (PmergeMe::errorException &e) {
-		std::cout << e.what() << std::endl;
-	}
+		if (argc < 2) {
+			std::cout << "Usage: " << argv[0] << " <numbers>" << std::endl;
+			return 1;
+		} else if (argc > 3001) {
+			std::cout << "Error: N numbers must be less than 3000." << std::endl;
+			return 1;
+		}
+		try {
+			// Vector
+			PmergeMe sorter(argv);
+			std::cout << "Before sorting: ";
+			sorter.printV();
+			
+			sorter.sortV();
+			
+			std::cout << "After sorting: ";
+			sorter.printV();
+			sorter.printT(argc - 1, 1);
+			
+			//Deque
+			sorter.sortD();
+			sorter.printT(argc - 1, 0);
+			
+		} catch (PmergeMe::errorException &e) {
+			std::cerr << e.what() << std::endl;
+			return 1;
+		}
+		return 0;
 }

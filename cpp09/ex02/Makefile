@@ -18,18 +18,18 @@ RST = \033[0m
 
 NAME	:=	PmergeMe	
 
-SRC	 :=	main.cpp					\
-			PmergeMe.cpp				\
+SRC		:=	main.cpp		\
+			PmergeMe.cpp	\
 
 OBJ_DIR := obj
 
-OBJ	 := $(SRC:%.cpp=$(OBJ_DIR)/%.o)
+OBJ		:= $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-CPP	 := c++ -std=c++98
+CPP		:= c++ -std=c++98
 
-CPPFLAGS := -W -Wall -Wextra -Werror -MMD -MP -pedantic
+CPPFLAGS	:= -W -Wall -Wextra -Werror -MMD -MP -pedantic
 
-RM	  := @rm -rf
+RM		:= @rm -rf
 
 all:	$(NAME)
 
